@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ValkyrieEUW - Wild Rift Stream</title>
+    <style>
+      /* General Reset */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+      }
+
+      main {
+        padding: 24px;
+      }
+
+      /* SVG Background */
+      .svg-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.8;
+      }
+
+      /* Cover Photo */
+      .cover-photo {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 10vh;
+        background: url("https://static-cdn.jtvnw.net/jtv_user_pictures/7918122a-4c30-4163-9adc-5e2837ce37fb-profile_banner-480.png")
+          no-repeat center center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+      }
+
+      /* Container Utility */
+      .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .hero a {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        color: #ffffff;
+        background: linear-gradient(90deg, #ff00ff, #00ffff);
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hero a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+      }
+
+      /* About Section */
+      .about {
+        padding: 30px 20px;
+        text-align: center;
+        background: #1c1c1c;
+        border-radius: 20px;
+        margin-top: 20px;
+      }
+
+      .about h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ff00ff;
+      }
+
+      .about p {
+        font-size: 0.8rem;
+        line-height: 1.6;
+        color: #bfbfbf;
+      }
+
+      /* Call to Action Section */
+      .cta {
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        background: linear-gradient(90deg, #ff00ff, #00ffff);
+        border-radius: 20px;
+      }
+
+      .cta h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+
+      .cta a {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        color: #1c1c1c;
+        background: #ffffff;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .cta a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #ffffff;
+      }
+
+      /* Footer */
+      .footer {
+        background: #0d0d0d;
+        padding: 20px 0;
+        text-align: center;
+        color: #bfbfbf;
+        font-size: 0.8rem;
+        margin-top: 20px;
+      }
+
+      .footer a {
+        color: #ff00ff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Modal (Event Pop-up) */
+      .modal {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .modal-content {
+        text-align: center;
+      }
+
+      .modal h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #ff00ff;
+      }
+
+      .modal p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .close {
+        background-color: #ff00ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        background-color: #00ffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover-photo">
+      <!-- Cover Photo Section on Top -->
+    </div>
+
+    <main>
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1>Beers, Chips, & Chill Games!</h1>
+          <p>
+            Catch me on Wild Rift for epic gameplay, laughs, and a good time!
+            Let's vibe and have some fun!
+          </p>
+          <a href="https://www.twitch.tv/ValkyrieEUW" target="_blank"
+            >Join the Stream!</a
+          >
+        </section>
+      </div>
+
+      <!-- About Section -->
+      <section class="about">
+        <h2>Who Am I?</h2>
+        <p>
+          I'm ValkyrieEUW, your go-to Wild Rift streamer. It's all about good
+          vibes, epic gameplay, and chill moments. Grab a drink and let's go!
+        </p>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="cta">
+        <h2>Ready to Chill?</h2>
+        <a href="https://www.twitch.tv/ValkyrieEUW" target="_blank"
+          >Start Watching Now!</a
+        >
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        Follow me on
+        <a href="https://www.twitch.tv/ValkyrieEUW" target="_blank">Twitch</a>
+        for all the updates!
+      </p>
+    </footer>
+
+    <!-- Event Modal Pop-up -->
+    <div class="modal" id="eventModal">
+      <div class="modal-content">
+        <h3>Today's Event: Special Guest TopG!</h3>
+        <p>
+          I'm an ex-Diamond player returning to Wild Rift! Join me today for an
+          epic stream with TopG (ex-Master). It's going to be super fun!
+        </p>
+        <button class="close" id="closeModal">Close</button>
+      </div>
+    </div>
+
+    <!-- SVG Background for Gaming Feel -->
+    <svg
+      class="svg-bg"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+    >
+      <path
+        fill="#ff00ff"
+        fill-opacity="0.1"
+        d="M0,96L80,160L160,192L240,160L320,192L400,128L480,160L560,192L640,128L720,160L800,192L880,128L960,160L1040,192L1120,160L1200,192L1280,128L1360,160L1440,128V320H0V96Z"
+      ></path>
+    </svg>
+
+    <script>
+      // Show the modal after 1 second with smooth transition
+      window.onload = () => {
+        setTimeout(() => {
+          const modal = document.getElementById("eventModal");
+          modal.style.display = "flex";
+          setTimeout(() => {
+            modal.style.opacity = 1;
+          }, 50);
+        }, 1000);
+
+        // Close modal functionality
+        document.getElementById("closeModal").addEventListener("click", () => {
+          const modal = document.getElementById("eventModal");
+          modal.style.opacity = 0;
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 500);
+        });
+      };
+    </script>
+  </body>
+</html>
