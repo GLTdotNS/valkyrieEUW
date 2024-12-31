@@ -8,10 +8,9 @@
         /* Основни стилове */
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: #101820;
-            color: #f8f8f8;
-            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            background: #f4f6f9;
+            color: #1e293b;
         }
 
         /* Навигация */
@@ -19,14 +18,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background: #1e293b;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px;
+            background: #0a75ad;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         nav .logo {
             font-size: 1.5rem;
-            color: #0077b6;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -34,75 +33,79 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 30px;
             margin: 0;
             padding: 0;
         }
 
-        nav ul li {
-            display: inline;
-        }
-
         nav ul li a {
             text-decoration: none;
-            color: #f8f8f8;
+            color: white;
             font-weight: bold;
-            text-transform: uppercase;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #0077b6;
+            color: #e2e8f0;
         }
 
-        /* Заглавие */
+        /* Хедър */
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #1e293b, #101820);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a75ad, #0077b6);
+            color: white;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
             margin-bottom: 20px;
-            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         header p {
             font-size: 1.2rem;
-            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* Бутон */
+        .button {
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: #0a75ad;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background: #005f8d;
+            transform: translateY(-3px);
+        }
+
+        .button.secondary {
+            background: #f4f6f9;
+            color: #0a75ad;
+            border: 2px solid #0a75ad;
+        }
+
+        .button.secondary:hover {
+            background: #e2e8f0;
+            color: #005f8d;
         }
 
         /* Контейнер */
         .container {
             max-width: 1200px;
             margin: 40px auto;
-            padding: 20px;
             text-align: center;
-        }
-
-        /* Бутон */
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            background: #0077b6;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 119, 182, 0.4);
-        }
-
-        .button:hover {
-            background: #005f8d;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 95, 141, 0.6);
         }
 
         /* Модален прозорец */
@@ -113,40 +116,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
 
         .modal-content {
-            background: #1e293b;
-            padding: 20px;
+            background: white;
+            padding: 30px;
             border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
+            max-width: 500px;
             width: 90%;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
         .modal-content h2 {
-            color: #0077b6;
+            color: #0a75ad;
+            margin-bottom: 20px;
         }
 
         .modal-content p {
-            margin: 10px 0;
-            color: #f8f8f8;
+            color: #4a5568;
+            margin-bottom: 30px;
         }
 
         .modal-content .close {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #0077b6;
+            padding: 10px 30px;
+            background: #0a75ad;
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
         }
 
         .modal-content .close:hover {
@@ -155,15 +159,15 @@
 
         /* Футър */
         footer {
-            background: #1e293b;
+            background: #0a75ad;
+            color: white;
             padding: 20px;
             text-align: center;
-            color: #94a3b8;
             font-size: 0.9rem;
         }
 
         footer a {
-            color: #0077b6;
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: bold;
         }
@@ -176,7 +180,7 @@
 <body>
 
 <nav>
-    <div class="logo">Лого</div>
+    <div class="logo">SAP Вдъхновение</div>
     <ul>
         <li><a href="#about">За нас</a></li>
         <li><a href="#services">Услуги</a></li>
@@ -186,24 +190,26 @@
 
 <header>
     <h1>Създаваме Бъдещето</h1>
-    <p>Иновативни решения за вашия бизнес</p>
+    <p>С нас ще станете милионери много бързо – това обещаваме!</p>
+    <button class="button" onclick="showModal()">Свържете се с нас</button>
+    <button class="button secondary" onclick="showInfo()">Научете повече</button>
 </header>
 
 <div class="container">
-    <button class="button" onclick="showModal()">Свържете се с нас</button>
+    <p>Инвестирайте в нашите решения и се присъединете към успешните.</p>
 </div>
 
 <!-- Модален прозорец -->
 <div class="modal" id="modal">
     <div class="modal-content">
-        <h2>Благодарим за вашия интерес!</h2>
-        <p>Ще се свържем с вас възможно най-скоро.</p>
+        <h2>Благодарим за вашето доверие!</h2>
+        <p>Ще се свържем с вас до 24 часа. Очаквайте обаждане от нашия екип.</p>
         <button class="close" onclick="closeModal()">Затвори</button>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2024 Корпоративен Сайт. <a href="#terms">Условия</a></p>
+    &copy; 2024 SAP Inspired. <a href="#terms">Условия за ползване</a> | <a href="#privacy">Поверителност</a>
 </footer>
 
 <script>
@@ -213,6 +219,10 @@
 
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
+    }
+
+    function showInfo() {
+        alert("Скоро ще добавим още информация.");
     }
 </script>
 
