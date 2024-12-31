@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAMILLE Корпоративен Сайт</title>
+    <title>BAMILLE - Корпоративен Уебсайт</title>
     <style>
         /* Основни стилове */
         body {
@@ -11,6 +11,7 @@
             font-family: 'Arial', sans-serif;
             background: #f4f6f9;
             color: #1e293b;
+            line-height: 1.6;
         }
 
         /* Навигация */
@@ -41,7 +42,7 @@
             border: none;
             color: white;
             cursor: pointer;
-            display: block;
+            display: none;
         }
 
         /* Плъзгащо се меню */
@@ -93,11 +94,29 @@
             cursor: pointer;
         }
 
+        /* Основно меню за десктоп */
+        .desktop-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .desktop-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .desktop-menu a:hover {
+            color: #e2e8f0;
+        }
+
         /* Хедър */
         header {
             margin-top: 60px;
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #0a75ad, #005f8d);
             color: white;
         }
@@ -110,11 +129,10 @@
         }
 
         header p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
         }
 
-        /* Бутон */
         .button {
             padding: 10px 30px;
             font-size: 1rem;
@@ -153,6 +171,30 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Респонсив дизайн */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .button {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -161,6 +203,11 @@
 <nav>
     <div class="logo">BAMILLE</div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="desktop-menu">
+        <a href="#about">За нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакти</a>
+    </div>
 </nav>
 
 <div class="side-menu" id="sideMenu">
@@ -174,20 +221,35 @@
 
 <!-- Хедър -->
 <header>
-    <h1>С нас към успеха</h1>
-    <p>BAMILLE – вашият партньор в иновациите и растежа.</p>
-    <button class="button">Свържете се с нас</button>
+    <h1>С нас ще станете милионери</h1>
+    <p>BAMILLE – доверете се на бъдещето и растежа.</p>
+    <button class="button" onclick="showModal()">Свържете се с нас</button>
 </header>
+
+<!-- Модален прозорец -->
+<div id="modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; background: white; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius: 5px;">
+    <h2>Свържете се с нас</h2>
+    <p>Ние сме тук, за да ви помогнем!</p>
+    <button class="button" onclick="closeModal()">Затвори</button>
+</div>
 
 <!-- Футър -->
 <footer>
-    &copy; 2024 BAMILLE. Всички права запазени.
+    &copy; 2024 BAMILLE. Всички права запазени. <a href="#">Политика за поверителност</a>
 </footer>
 
 <script>
     function toggleMenu() {
         const sideMenu = document.getElementById('sideMenu');
         sideMenu.classList.toggle('active');
+    }
+
+    function showModal() {
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
     }
 </script>
 
