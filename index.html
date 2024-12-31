@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Станете милионери с нас</title>
+  <title>Ще станете милионери с нас</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Основни стилове */
@@ -12,60 +12,72 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      background-color: #f5f5f5;
     }
     h1, p {
       margin: 0;
     }
 
-    /* Заглавие и CTA */
+    /* Hero секция */
     .hero {
       background-color: #212121;
       color: white;
-      padding: 100px 20px;
+      padding: 40px 20px;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     .cta-button {
       background-color: #f9d423;
       color: black;
-      padding: 15px 40px;
-      font-size: 1.2rem;
+      padding: 12px 30px;
+      font-size: 1.1rem;
       text-transform: uppercase;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      border-radius: 5px;
     }
 
     .cta-button:hover {
       background-color: #f9b424;
     }
 
-    /* Секция с предимства */
+    /* Предимства секция */
     .advantages {
       display: flex;
-      justify-content: space-around;
-      padding: 60px 20px;
-      background-color: #f4f4f4;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #fff;
     }
 
     .advantage {
+      width: 80%;
       text-align: center;
-      width: 30%;
+      margin-bottom: 20px;
     }
 
     .advantage h2 {
       font-size: 1.5rem;
+      color: #333;
       margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .advantage p {
+      font-size: 1rem;
+      color: #555;
     }
 
     /* Футър */
@@ -78,22 +90,27 @@
 
     footer p {
       margin: 0;
+      font-size: 0.9rem;
     }
 
-    /* Респонсив */
-    @media (max-width: 768px) {
+    /* Респонсив за по-големи екрани */
+    @media (min-width: 768px) {
       .hero h1 {
-        font-size: 2rem;
+        font-size: 3rem;
+      }
+
+      .cta-button {
+        padding: 15px 40px;
       }
 
       .advantages {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
       }
 
       .advantage {
-        width: 80%;
-        margin-bottom: 20px;
+        width: 30%;
+        margin-bottom: 0;
       }
     }
   </style>
@@ -109,21 +126,21 @@
   <section class="advantages">
     <div class="advantage">
       <h2>Лесно започване</h2>
-      <p>Със система, която работи за вас.</p>
+      <p>Със система, която работи за вас. Няма скрити такси.</p>
     </div>
     <div class="advantage">
       <h2>Гарантиран успех</h2>
-      <p>Индивидуален подход и стратегия.</p>
+      <p>Индивидуален подход и стратегия, съобразени с вашите нужди.</p>
     </div>
     <div class="advantage">
       <h2>Печалба от първия ден</h2>
-      <p>Увеличете доходите си с нас.</p>
+      <p>Увеличете доходите си с нас, започвайки още днес!</p>
     </div>
   </section>
 
   <!-- Футър -->
   <footer>
-    <p>© 2024 Всички права запазени.</p>
+    <p>© 2024 Всички права запазени. Всеки успех започва с нас!</p>
   </footer>
 </body>
 </html>
