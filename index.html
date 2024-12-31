@@ -10,7 +10,7 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             background: #f4f6f9;
-            color: #1e293b;
+            color: #333;
             line-height: 1.6;
         }
 
@@ -20,24 +20,25 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 60px;
-            background: #0a75ad;
+            height: 80px;
+            background: #004d74;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 40px;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
         .menu-toggle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             background: none;
             border: none;
             color: white;
@@ -52,7 +53,7 @@
             left: -250px;
             width: 250px;
             height: 100%;
-            background: #0a75ad;
+            background: #004d74;
             color: white;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             transition: left 0.3s ease;
@@ -79,7 +80,7 @@
         .side-menu ul li a {
             text-decoration: none;
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
             transition: color 0.3s ease;
         }
@@ -90,20 +91,20 @@
 
         .close-btn {
             align-self: flex-end;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
         }
 
         /* Основно меню за десктоп */
         .desktop-menu {
             display: flex;
-            gap: 20px;
+            gap: 40px;
         }
 
         .desktop-menu a {
             color: white;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
             transition: color 0.3s;
         }
@@ -114,31 +115,31 @@
 
         /* Хедър */
         header {
-            margin-top: 60px;
+            margin-top: 80px;
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #0a75ad, #005f8d);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #004d74, #003f63);
             color: white;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
         }
 
         .button {
-            padding: 10px 30px;
-            font-size: 1rem;
+            padding: 12px 35px;
+            font-size: 1.1rem;
             font-weight: bold;
             color: white;
-            background: #005f8d;
+            background: #003f63;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -149,17 +150,17 @@
         }
 
         .button:hover {
-            background: #003f63;
+            background: #002d47;
             transform: translateY(-2px);
         }
 
         /* Футър */
         footer {
-            background: #0a75ad;
+            background: #004d74;
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         footer a {
@@ -174,6 +175,11 @@
 
         /* Респонсив дизайн */
         @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+                height: 70px;
+            }
+
             .menu-toggle {
                 display: block;
             }
@@ -182,17 +188,39 @@
                 display: none;
             }
 
+            header {
+                padding: 80px 20px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 10px 30px;
+            }
+
+            .side-menu ul li a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
             header h1 {
                 font-size: 2rem;
             }
 
             header p {
                 font-size: 1rem;
-            }
-
-            .button {
-                font-size: 0.9rem;
-                padding: 8px 20px;
             }
         }
     </style>
