@@ -15,175 +15,124 @@
 
         /* Навигация */
         nav {
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #0a75ad;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: #0a75ad;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        nav .logo {
-            font-size: 1.5rem;
+        .logo {
+            font-size: 1.2rem;
             font-weight: bold;
-            text-transform: uppercase;
         }
 
         .menu-toggle {
-            display: none;
-            cursor: pointer;
             font-size: 1.5rem;
-            color: white;
             background: none;
             border: none;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
             color: white;
-            font-weight: bold;
-            transition: color 0.3s;
+            cursor: pointer;
+            display: block;
         }
 
-        nav ul li a:hover {
-            color: #e2e8f0;
-        }
-
-        /* Мобилно меню */
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
+        /* Плъзгащо се меню */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
             background: #0a75ad;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 999;
+            display: flex;
             flex-direction: column;
-        }
-
-        .mobile-menu ul {
-            flex-direction: column;
-            gap: 20px;
             padding: 20px;
         }
 
-        .mobile-menu ul li a {
-            color: white;
+        .side-menu.active {
+            left: 0;
         }
 
-        .mobile-menu.show {
-            display: flex;
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu ul li {
+            margin-bottom: 20px;
+        }
+
+        .side-menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .side-menu ul li a:hover {
+            color: #e2e8f0;
+        }
+
+        .close-btn {
+            align-self: flex-end;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Хедър */
         header {
+            margin-top: 60px;
             text-align: center;
             padding: 100px 20px;
-            background: linear-gradient(135deg, #0a75ad, #0077b6);
+            background: linear-gradient(135deg, #0a75ad, #005f8d);
             color: white;
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 30px;
         }
 
         /* Бутон */
         .button {
-            padding: 15px 40px;
+            padding: 10px 30px;
             font-size: 1rem;
             font-weight: bold;
             color: white;
-            background: #0a75ad;
+            background: #005f8d;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
-            display: inline-block;
             text-transform: uppercase;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
         }
 
         .button:hover {
-            background: #005f8d;
-            transform: translateY(-3px);
-        }
-
-        .button.secondary {
-            background: #f4f6f9;
-            color: #0a75ad;
-            border: 2px solid #0a75ad;
-        }
-
-        .button.secondary:hover {
-            background: #e2e8f0;
-            color: #005f8d;
-        }
-
-        /* Модален прозорец */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            color: #0a75ad;
-            margin-bottom: 20px;
-        }
-
-        .modal-content p {
-            color: #4a5568;
-            margin-bottom: 30px;
-        }
-
-        .modal-content .close {
-            padding: 10px 30px;
-            background: #0a75ad;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
-
-        .modal-content .close:hover {
-            background: #005f8d;
+            background: #003f63;
+            transform: translateY(-2px);
         }
 
         /* Футър */
@@ -208,55 +157,37 @@
 </head>
 <body>
 
+<!-- Навигация -->
 <nav>
     <div class="logo">BAMILLE</div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul class="desktop-menu">
+</nav>
+
+<div class="side-menu" id="sideMenu">
+    <div class="close-btn" onclick="toggleMenu()">×</div>
+    <ul>
         <li><a href="#about">За нас</a></li>
         <li><a href="#services">Услуги</a></li>
         <li><a href="#contact">Контакти</a></li>
     </ul>
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#about">За нас</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#contact">Контакти</a></li>
-        </ul>
-    </div>
-</nav>
-
-<header>
-    <h1>Станете милионери с нас</h1>
-    <p>BAMILLE обещава иновации, успех и растеж!</p>
-    <button class="button" onclick="showModal()">Свържете се с нас</button>
-    <button class="button secondary">Научете повече</button>
-</header>
-
-<!-- Модален прозорец -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <h2>Благодарим за доверието!</h2>
-        <p>Ще се свържем с вас в най-кратък срок.</p>
-        <button class="close" onclick="closeModal()">Затвори</button>
-    </div>
 </div>
 
+<!-- Хедър -->
+<header>
+    <h1>С нас към успеха</h1>
+    <p>BAMILLE – вашият партньор в иновациите и растежа.</p>
+    <button class="button">Свържете се с нас</button>
+</header>
+
+<!-- Футър -->
 <footer>
     &copy; 2024 BAMILLE. Всички права запазени.
 </footer>
 
 <script>
     function toggleMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('show');
-    }
-
-    function showModal() {
-        document.getElementById('modal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
+        const sideMenu = document.getElementById('sideMenu');
+        sideMenu.classList.toggle('active');
     }
 </script>
 
