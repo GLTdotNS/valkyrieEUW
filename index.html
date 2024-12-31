@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корпоративен Сайт</title>
+    <title>BAMILLE Корпоративен Сайт</title>
     <style>
         /* Основни стилове */
         body {
@@ -15,6 +15,7 @@
 
         /* Навигация */
         nav {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -28,6 +29,15 @@
             font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            background: none;
+            border: none;
         }
 
         nav ul {
@@ -47,6 +57,32 @@
 
         nav ul li a:hover {
             color: #e2e8f0;
+        }
+
+        /* Мобилно меню */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #0a75ad;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .mobile-menu ul li a {
+            color: white;
+        }
+
+        .mobile-menu.show {
+            display: flex;
         }
 
         /* Хедър */
@@ -99,13 +135,6 @@
         .button.secondary:hover {
             background: #e2e8f0;
             color: #005f8d;
-        }
-
-        /* Контейнер */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            text-align: center;
         }
 
         /* Модален прозорец */
@@ -180,49 +209,54 @@
 <body>
 
 <nav>
-    <div class="logo">SAP Вдъхновение</div>
-    <ul>
+    <div class="logo">BAMILLE</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="desktop-menu">
         <li><a href="#about">За нас</a></li>
         <li><a href="#services">Услуги</a></li>
         <li><a href="#contact">Контакти</a></li>
     </ul>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#about">За нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+    </div>
 </nav>
 
 <header>
-    <h1>Създаваме Бъдещето</h1>
-    <p>С нас ще станете милионери много бързо – това обещаваме!</p>
+    <h1>Станете милионери с нас</h1>
+    <p>BAMILLE обещава иновации, успех и растеж!</p>
     <button class="button" onclick="showModal()">Свържете се с нас</button>
-    <button class="button secondary" onclick="showInfo()">Научете повече</button>
+    <button class="button secondary">Научете повече</button>
 </header>
-
-<div class="container">
-    <p>Инвестирайте в нашите решения и се присъединете към успешните.</p>
-</div>
 
 <!-- Модален прозорец -->
 <div class="modal" id="modal">
     <div class="modal-content">
-        <h2>Благодарим за вашето доверие!</h2>
-        <p>Ще се свържем с вас до 24 часа. Очаквайте обаждане от нашия екип.</p>
+        <h2>Благодарим за доверието!</h2>
+        <p>Ще се свържем с вас в най-кратък срок.</p>
         <button class="close" onclick="closeModal()">Затвори</button>
     </div>
 </div>
 
 <footer>
-    &copy; 2024 SAP Inspired. <a href="#terms">Условия за ползване</a> | <a href="#privacy">Поверителност</a>
+    &copy; 2024 BAMILLE. Всички права запазени.
 </footer>
 
 <script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('show');
+    }
+
     function showModal() {
         document.getElementById('modal').style.display = 'flex';
     }
 
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
-    }
-
-    function showInfo() {
-        alert("Скоро ще добавим още информация.");
     }
 </script>
 
