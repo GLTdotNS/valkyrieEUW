@@ -1,264 +1,129 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAMILLE - Корпоративен Уебсайт</title>
-    <style>
-        /* Основни стилове */
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: #ffffff;
-            color: #333;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Станете милионери с нас</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Основни стилове */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    h1, p {
+      margin: 0;
+    }
 
-        /* Навигация */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: #ffffff;
-            color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
+    /* Заглавие и CTA */
+    .hero {
+      background-color: #212121;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
-            letter-spacing: 1px;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
 
-        .desktop-menu {
-            display: flex;
-            gap: 30px;
-        }
+    .cta-button {
+      background-color: #f9d423;
+      color: black;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        .desktop-menu a {
-            color: #333;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: normal;
-            transition: color 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
+    .cta-button:hover {
+      background-color: #f9b424;
+    }
 
-        .desktop-menu a:hover {
-            color: #005f8d;
-            border-bottom: 2px solid #005f8d;
-        }
+    /* Секция с предимства */
+    .advantages {
+      display: flex;
+      justify-content: space-around;
+      padding: 60px 20px;
+      background-color: #f4f4f4;
+    }
 
-        /* Мобилно меню */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: #333;
-            cursor: pointer;
-        }
+    .advantage {
+      text-align: center;
+      width: 30%;
+    }
 
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: #ffffff;
-            color: #333;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            border-right: 2px solid #f1f1f1;
-        }
+    .advantage h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
 
-        .side-menu.active {
-            left: 0;
-        }
+    /* Футър */
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .side-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    footer p {
+      margin: 0;
+    }
 
-        .side-menu ul li {
-            margin-bottom: 20px;
-        }
+    /* Респонсив */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
 
-        .side-menu ul li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
+      .advantages {
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .side-menu ul li a:hover {
-            color: #005f8d;
-            border-bottom: 2px solid #005f8d;
-        }
-
-        .close-btn {
-            align-self: flex-end;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Хедър */
-        header {
-            margin-top: 70px;
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #005f8d, #003f63);
-            color: white;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            padding: 10px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-            background: #003f63;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            text-transform: uppercase;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-        }
-
-        .button:hover {
-            background: #002b42;
-            transform: translateY(-2px);
-        }
-
-        /* Футър */
-        footer {
-            background: #003f63;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Респонсив дизайн */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .desktop-menu {
-                display: none;
-            }
-
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            header p {
-                font-size: 1.1rem;
-            }
-
-            .button {
-                font-size: 0.9rem;
-                padding: 8px 20px;
-            }
-        }
-    </style>
+      .advantage {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hero секция -->
+  <section class="hero">
+    <h1>Ще станете милионери с нас!</h1>
+    <button class="cta-button">Започнете сега</button>
+  </section>
 
-<!-- Навигация -->
-<nav>
-    <div class="logo">BAMILLE</div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="desktop-menu">
-        <a href="#about">За нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#contact">Контакти</a>
+  <!-- Предимства секция -->
+  <section class="advantages">
+    <div class="advantage">
+      <h2>Лесно започване</h2>
+      <p>Със система, която работи за вас.</p>
     </div>
-</nav>
+    <div class="advantage">
+      <h2>Гарантиран успех</h2>
+      <p>Индивидуален подход и стратегия.</p>
+    </div>
+    <div class="advantage">
+      <h2>Печалба от първия ден</h2>
+      <p>Увеличете доходите си с нас.</p>
+    </div>
+  </section>
 
-<!-- Мобилно меню -->
-<div class="side-menu" id="sideMenu">
-    <div class="close-btn" onclick="toggleMenu()">×</div>
-    <ul>
-        <li><a href="#about">За нас</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#contact">Контакти</a></li>
-    </ul>
-</div>
-
-<!-- Хедър -->
-<header>
-    <h1>С нас ще станете милионери</h1>
-    <p>BAMILLE – доверете се на бъдещето и растежа.</p>
-    <button class="button" onclick="showModal()">Свържете се с нас</button>
-</header>
-
-<!-- Модален прозорец -->
-<div id="modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; background: white; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-radius: 5px;">
-    <h2>Свържете се с нас</h2>
-    <p>Ние сме тук, за да ви помогнем!</p>
-    <button class="button" onclick="closeModal()">Затвори</button>
-</div>
-
-<!-- Футър -->
-<footer>
-    &copy; 2024 BAMILLE. Всички права запазени. <a href="#">Политика за поверителност</a>
-</footer>
-
-<script>
-    function toggleMenu() {
-        const sideMenu = document.getElementById('sideMenu');
-        sideMenu.classList.toggle('active');
-    }
-
-    function showModal() {
-        document.getElementById('modal').style.display = 'block';
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-</script>
-
+  <!-- Футър -->
+  <footer>
+    <p>© 2024 Всички права запазени.</p>
+  </footer>
 </body>
 </html>
