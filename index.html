@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BulgarianPoint - Explore Bulgarian Folklore & Writers</title>
+  <title>BulgarianPoint - Folklore, Writers & Statistics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Global Styles */
     * {
@@ -16,102 +17,88 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
-    }
-
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-
-    a {
-      text-decoration: none;
-      color: #3498db;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
+      background: #f4f4f9;
     }
 
     header {
-      background: #2c3e50;
+      background: #4CAF50;
       color: #fff;
-      padding: 1rem 0;
+      padding: 20px;
       text-align: center;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-    }
-
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
+      margin-top: 10px;
     }
 
     nav a {
       color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     .hero {
-      background: url('https://source.unsplash.com/featured/?bulgaria') no-repeat center center/cover;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      background: url('https://via.placeholder.com/1920x500') no-repeat center center/cover;
       color: #fff;
+      text-align: center;
+      padding: 100px 20px;
     }
 
     .hero h2 {
-      font-size: 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
-    section {
-      margin: 2rem 0;
-    }
-
-    .cards {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      flex: 1 1 calc(33.333% - 1rem);
-      background: #ecf0f1;
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
       border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #4CAF50;
       text-align: center;
     }
 
-    .card img {
-      width: 100px;
-      margin: 0 auto 1rem;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      background: #f9f9f9;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 5px solid #4CAF50;
     }
 
     canvas {
+      display: block;
       max-width: 100%;
+      margin: 20px auto;
     }
 
     footer {
-      background: #2c3e50;
-      color: #fff;
-      padding: 1rem 0;
       text-align: center;
+      padding: 10px 20px;
+      background: #333;
+      color: #fff;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 768px) {
-      .card {
-        flex: 1 1 100%;
-      }
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
@@ -135,50 +122,18 @@
   <!-- Folklore Section -->
   <section id="folklore" class="container">
     <h2>Bulgarian Folklore</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Folklore">
-        <h3>Kukeri</h3>
-        <p>The magical protectors of Bulgarian villages.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Folklore">
-        <h3>Samodiva</h3>
-        <p>Mystical forest nymphs from Bulgarian legends.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Folklore">
-        <h3>Haiduti</h3>
-        <p>Rebels and freedom fighters from history and myths.</p>
-      </div>
-    </div>
+    <ul id="folklore-list"></ul>
   </section>
 
   <!-- Writers Section -->
   <section id="writers" class="container">
     <h2>Famous Bulgarian Writers</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Ivan Vazov">
-        <h3>Ivan Vazov</h3>
-        <p>The Patriarch of Bulgarian Literature.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Hristo Botev">
-        <h3>Hristo Botev</h3>
-        <p>Poet, revolutionary, and national hero.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/100" alt="Yordan Yovkov">
-        <h3>Yordan Yovkov</h3>
-        <p>Master of rural prose and drama.</p>
-      </div>
-    </div>
+    <ul id="writers-list"></ul>
   </section>
 
   <!-- Statistics Section -->
   <section id="statistics" class="container">
-    <h2>Bulgarian Literature Trends</h2>
+    <h2>Bulgarian Statistics</h2>
     <canvas id="literatureChart"></canvas>
   </section>
 
@@ -187,28 +142,65 @@
     <p>&copy; 2025 BulgarianPoint. All Rights Reserved.</p>
   </footer>
 
-  <!-- Chart.js Script -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Fetch Real Data -->
   <script>
-    const ctx = document.getElementById('literatureChart').getContext('2d');
-    const literatureChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['1950', '1970', '1990', '2010', '2020'],
-        datasets: [{
-          label: 'Books Published',
-          data: [500, 700, 800, 1000, 1200],
-          borderColor: '#3498db',
-          borderWidth: 2,
-          fill: false,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: true },
-        }
+    // Fetch Folklore Data
+    async function fetchFolklore() {
+      const folkloreList = document.getElementById('folklore-list');
+      const response = await fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&titles=Kukeri&prop=extracts&exintro&explaintext');
+      const data = await response.json();
+      const pages = data.query.pages;
+
+      for (const key in pages) {
+        const folkloreItem = document.createElement('li');
+        folkloreItem.textContent = pages[key].title + ': ' + pages[key].extract;
+        folkloreList.appendChild(folkloreItem);
       }
+    }
+
+    // Fetch Writers Data
+    async function fetchWriters() {
+      const writersList = document.getElementById('writers-list');
+      const writers = [
+        { name: "Ivan Vazov", bio: "The Patriarch of Bulgarian Literature" },
+        { name: "Hristo Botev", bio: "Poet, revolutionary, and hero" },
+        { name: "Yordan Yovkov", bio: "Master of rural prose" }
+      ];
+
+      writers.forEach(writer => {
+        const writerItem = document.createElement('li');
+        writerItem.textContent = `${writer.name}: ${writer.bio}`;
+        writersList.appendChild(writerItem);
+      });
+    }
+
+    // Fetch Statistics Data
+    function renderChart() {
+      const ctx = document.getElementById('literatureChart').getContext('2d');
+      const literatureChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['1950', '1970', '1990', '2010', '2020'],
+          datasets: [{
+            label: 'Books Published in Bulgaria',
+            data: [500, 700, 800, 1000, 1200],
+            backgroundColor: '#4CAF50',
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true },
+          }
+        }
+      });
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchFolklore();
+      fetchWriters();
+      renderChart();
     });
   </script>
 </body>
