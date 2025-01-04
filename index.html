@@ -1,237 +1,213 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ще станете милионери с нас</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>BulgarianPoint - Explore Bulgarian Folklore & Writers</title>
   <style>
-    /* Основни стилове */
-    body {
-      font-family: 'Roboto', sans-serif;
+    /* Global Styles */
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-color: #f5f5f5;
-    }
-    h1, p {
-      margin: 0;
     }
 
-    /* Hero секция */
-    .hero {
-      background-color: #212121;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .cta-button {
-      background-color: #f9d423;
-      color: black;
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      border-radius: 5px;
-    }
-
-    .cta-button:hover {
-      background-color: #f9b424;
-    }
-
-    /* Модален прозорец */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .modal button {
-      background-color: #f9d423;
-      color: black;
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      border-radius: 5px;
-      width: 100%;
-    }
-
-    .modal button:hover {
-      background-color: #f9b424;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Предимства секция */
-    .advantages {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-      background-color: #fff;
-    }
-
-    .advantage {
-      width: 80%;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .advantage h2 {
-      font-size: 1.5rem;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
       color: #333;
-      margin-bottom: 10px;
-      font-weight: 600;
     }
 
-    .advantage p {
-      font-size: 1rem;
-      color: #555;
+    h1, h2, h3 {
+      color: #2c3e50;
     }
 
-    /* Футър */
-    footer {
-      background-color: #212121;
-      color: white;
+    a {
+      text-decoration: none;
+      color: #3498db;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem 0;
       text-align: center;
-      padding: 20px;
     }
 
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
+    header h1 {
+      font-size: 2.5rem;
     }
 
-    /* Респонсив за по-големи екрани */
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 3rem;
-      }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
 
-      .cta-button {
-        padding: 15px 40px;
-      }
+    nav a {
+      color: #fff;
+      font-weight: bold;
+    }
 
-      .advantages {
-        flex-direction: row;
-        justify-content: space-around;
-      }
+    .hero {
+      background: url('https://source.unsplash.com/featured/?bulgaria') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
 
-      .advantage {
-        width: 30%;
-        margin-bottom: 0;
+    .hero h2 {
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    section {
+      margin: 2rem 0;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1 1 calc(33.333% - 1rem);
+      background: #ecf0f1;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      margin: 0 auto 1rem;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Hero секция -->
-  <section class="hero">
-    <h1>Ще станете милионери с нас!</h1>
-    <button class="cta-button" id="openModal">Започнете сега</button>
-  </section>
+  <!-- Header -->
+  <header>
+    <h1>BulgarianPoint</h1>
+    <nav>
+      <a href="#folklore">Folklore</a>
+      <a href="#writers">Writers</a>
+      <a href="#statistics">Statistics</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Модален прозорец -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Въведете данни за картата</h2>
-      <form id="cardForm">
-        <input type="text" placeholder="Име на картата" required>
-        <input type="text" placeholder="Номер на картата" required>
-        <input type="text" placeholder="Дата на изтичане (MM/YY)" required>
-        <input type="text" placeholder="CVV" required>
-        <button type="submit">Платете сега</button>
-      </form>
-    </div>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2>Explore the Stories, Writers, and Data Behind Bulgaria</h2>
   </div>
 
-  <!-- Предимства секция -->
-  <section class="advantages">
-    <div class="advantage">
-      <h2>Лесно започване</h2>
-      <p>Със система, която работи за вас. Няма скрити такси.</p>
-    </div>
-    <div class="advantage">
-      <h2>Гарантиран успех</h2>
-      <p>Индивидуален подход и стратегия, съобразени с вашите нужди.</p>
-    </div>
-    <div class="advantage">
-      <h2>Печалба от първия ден</h2>
-      <p>Увеличете доходите си с нас, започвайки още днес!</p>
+  <!-- Folklore Section -->
+  <section id="folklore" class="container">
+    <h2>Bulgarian Folklore</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Folklore">
+        <h3>Kukeri</h3>
+        <p>The magical protectors of Bulgarian villages.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Folklore">
+        <h3>Samodiva</h3>
+        <p>Mystical forest nymphs from Bulgarian legends.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Folklore">
+        <h3>Haiduti</h3>
+        <p>Rebels and freedom fighters from history and myths.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Футър -->
+  <!-- Writers Section -->
+  <section id="writers" class="container">
+    <h2>Famous Bulgarian Writers</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Ivan Vazov">
+        <h3>Ivan Vazov</h3>
+        <p>The Patriarch of Bulgarian Literature.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Hristo Botev">
+        <h3>Hristo Botev</h3>
+        <p>Poet, revolutionary, and national hero.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Yordan Yovkov">
+        <h3>Yordan Yovkov</h3>
+        <p>Master of rural prose and drama.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="statistics" class="container">
+    <h2>Bulgarian Literature Trends</h2>
+    <canvas id="literatureChart"></canvas>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2024 Всички права запазени. Всеки успех започва с нас!</p>
+    <p>&copy; 2025 BulgarianPoint. All Rights Reserved.</p>
   </footer>
 
+  <!-- Chart.js Script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // Отваряне на модалния прозорец
-    const openModalButton = document.getElementById('openModal');
-    const modal = document.getElementById('myModal');
-    const closeModalButton = document.getElementById('closeModal');
-
-    openModalButton.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-
-    // Затваряне на модалния прозорец
-    closeModalButton.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    // Затваряне на модала при клик извън прозореца
-    window.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        modal.style.display = 'none';
+    const ctx = document.getElementById('literatureChart').getContext('2d');
+    const literatureChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['1950', '1970', '1990', '2010', '2020'],
+        datasets: [{
+          label: 'Books Published',
+          data: [500, 700, 800, 1000, 1200],
+          borderColor: '#3498db',
+          borderWidth: 2,
+          fill: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
+        }
       }
     });
   </script>
