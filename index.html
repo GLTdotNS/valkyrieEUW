@@ -1,207 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BulgarianPoint - Folklore, Writers & Statistics</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f4f4f9;
-    }
-
-    header {
-      background: #4CAF50;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      background: url('https://via.placeholder.com/1920x500') no-repeat center center/cover;
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      color: #4CAF50;
-      text-align: center;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      background: #f9f9f9;
-      margin: 10px 0;
-      padding: 10px;
-      border-left: 5px solid #4CAF50;
-    }
-
-    canvas {
-      display: block;
-      max-width: 100%;
-      margin: 20px auto;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px 20px;
-      background: #333;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    footer p {
-      margin: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Български фолклор и литература</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <h1>BulgarianPoint</h1>
-    <nav>
-      <a href="#folklore">Folklore</a>
-      <a href="#writers">Writers</a>
-      <a href="#statistics">Statistics</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Hero Section -->
+    <header class="bg-green-900 text-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4">Български Фолклор и Литература</h1>
+            <p class="text-lg">Открийте богатството на нашето културно наследство.</p>
+        </div>
+    </header>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <h2>Explore the Stories, Writers, and Data Behind Bulgaria</h2>
-  </div>
+    <!-- About Bulgarian Folklore -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Български Фолклор</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Какво представлява?</h3>
+                    <p class="mb-4">
+                        Българският фолклор обхваща традиционни песни, приказки, митове, легенди и танци, 
+                        които предават културната ни идентичност. В основата му са вярванията и обичаите на българския народ.
+                    </p>
+                    <ul class="list-disc pl-6">
+                        <li>Народни песни</li>
+                        <li>Приказки и легенди</li>
+                        <li>Митове за герои и митични същества</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Bulgarian_folklore_dance.jpg" 
+                         alt="Български танци" 
+                         class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Folklore Section -->
-  <section id="folklore" class="container">
-    <h2>Bulgarian Folklore</h2>
-    <ul id="folklore-list"></ul>
-  </section>
+    <!-- Chart Section -->
+    <section class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Статистика за Фолклор и Литература</h2>
+            <div class="max-w-4xl mx-auto">
+                <canvas id="folkloreChart"></canvas>
+            </div>
+        </div>
+    </section>
 
-  <!-- Writers Section -->
-  <section id="writers" class="container">
-    <h2>Famous Bulgarian Writers</h2>
-    <ul id="writers-list"></ul>
-  </section>
+    <!-- Popular Bulgarian Authors -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Известни български автори</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Иван Вазов</h3>
+                    <p>Известен като "патриархът на българската литература". Автор на "Под игото" и "Немили-недраги".</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Христо Ботев</h3>
+                    <p>Поет и революционер, известен с произведения като "Моята молитва" и "Хаджи Димитър".</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Елин Пелин</h3>
+                    <p>Майстор на разказа за българското село. Негови известни творби са "Гераците" и "Земя".</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Statistics Section -->
-  <section id="statistics" class="container">
-    <h2>Bulgarian Statistics</h2>
-    <canvas id="literatureChart"></canvas>
-  </section>
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2025 BulgarianPoint.com - Всички права запазени</p>
+        </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 BulgarianPoint. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Fetch Real Data -->
-  <script>
-    // Fetch Folklore Data
-    async function fetchFolklore() {
-      const folkloreList = document.getElementById('folklore-list');
-      const response = await fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&titles=Kukeri&prop=extracts&exintro&explaintext');
-      const data = await response.json();
-      const pages = data.query.pages;
-
-      for (const key in pages) {
-        const folkloreItem = document.createElement('li');
-        folkloreItem.textContent = pages[key].title + ': ' + pages[key].extract;
-        folkloreList.appendChild(folkloreItem);
-      }
-    }
-
-    // Fetch Writers Data
-    async function fetchWriters() {
-      const writersList = document.getElementById('writers-list');
-      const writers = [
-        { name: "Ivan Vazov", bio: "The Patriarch of Bulgarian Literature" },
-        { name: "Hristo Botev", bio: "Poet, revolutionary, and hero" },
-        { name: "Yordan Yovkov", bio: "Master of rural prose" }
-      ];
-
-      writers.forEach(writer => {
-        const writerItem = document.createElement('li');
-        writerItem.textContent = `${writer.name}: ${writer.bio}`;
-        writersList.appendChild(writerItem);
-      });
-    }
-
-    // Fetch Statistics Data
-    function renderChart() {
-      const ctx = document.getElementById('literatureChart').getContext('2d');
-      const literatureChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['1950', '1970', '1990', '2010', '2020'],
-          datasets: [{
-            label: 'Books Published in Bulgaria',
-            data: [500, 700, 800, 1000, 1200],
-            backgroundColor: '#4CAF50',
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { display: true },
-          }
-        }
-      });
-    }
-
-    // Initialize Page
-    document.addEventListener('DOMContentLoaded', () => {
-      fetchFolklore();
-      fetchWriters();
-      renderChart();
-    });
-  </script>
+    <!-- Chart.js Script -->
+    <script>
+        const ctx = document.getElementById('folkloreChart').getContext('2d');
+        const folkloreChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Народни песни', 'Приказки', 'Митове', 'Легенди', 'Танци'],
+                datasets: [{
+                    label: 'Процент на популярност',
+                    data: [80, 70, 50, 60, 90],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
