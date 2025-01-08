@@ -1,120 +1,217 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Български фолклор и литература</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kata Mid & Diana Jungle</title>
+  <style>
+    /* Общи настройки */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, #e63946, #457b9d);
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    header span {
+      color: #f4a261;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f4a261;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    .skills {
+      margin: 50px 0;
+    }
+
+    .skills h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .skills-list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: #1d3557;
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1 1 calc(33.333% - 20px);
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      margin: 50px 0;
+      background: #457b9d;
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .about h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background: #1d3557;
+      color: #f0f6fc;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #f4a261;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+  <header>
+    <h1>Kata <span>Mid</span> & Diana <span>Jungle</span></h1>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
     <!-- Hero Section -->
-    <header class="bg-green-900 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-4">Български Фолклор и Литература</h1>
-            <p class="text-lg">Открийте богатството на нашето културно наследство.</p>
-        </div>
-    </header>
-
-    <!-- About Bulgarian Folklore -->
-    <section class="py-12 bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Български Фолклор</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Какво представлява?</h3>
-                    <p class="mb-4">
-                        Българският фолклор обхваща традиционни песни, приказки, митове, легенди и танци, 
-                        които предават културната ни идентичност. В основата му са вярванията и обичаите на българския народ.
-                    </p>
-                    <ul class="list-disc pl-6">
-                        <li>Народни песни</li>
-                        <li>Приказки и легенди</li>
-                        <li>Митове за герои и митични същества</li>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Bulgarian_folklore_dance.jpg" 
-                         alt="Български танци" 
-                         class="rounded-lg shadow-lg w-full">
-                </div>
-            </div>
-        </div>
+    <section class="hero">
+      <h2>Welcome to My Gamer Portfolio</h2>
+      <p>League of Legends Enthusiast | Mid Lane Assassin | Jungle Expert</p>
     </section>
 
-    <!-- Chart Section -->
-    <section class="py-12">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Статистика за Фолклор и Литература</h2>
-            <div class="max-w-4xl mx-auto">
-                <canvas id="folkloreChart"></canvas>
-            </div>
-        </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate gamer who loves strategy, mechanics, and outplaying the competition.
+        As a **Katarina Mid** and **Diana Jungle** main, I excel in high-pressure situations and thrive on making game-changing plays.
+        When I’m not playing LoL, I work as a developer specializing in JavaScript, Next.js, Python, and Linux-based environments.
+      </p>
+      <p>
+        My passion for gaming extends beyond the Rift. I believe in using technology to enhance the gaming experience, 
+        whether through developing tools for players or creating immersive gaming websites like this one.
+      </p>
     </section>
 
-    <!-- Popular Bulgarian Authors -->
-    <section class="py-12 bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Известни български автори</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Иван Вазов</h3>
-                    <p>Известен като "патриархът на българската литература". Автор на "Под игото" и "Немили-недраги".</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Христо Ботев</h3>
-                    <p>Поет и революционер, известен с произведения като "Моята молитва" и "Хаджи Димитър".</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Елин Пелин</h3>
-                    <p>Майстор на разказа за българското село. Негови известни творби са "Гераците" и "Земя".</p>
-                </div>
-            </div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <h2>My Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <h3>JavaScript</h3>
+          <p>Dynamic and interactive web development.</p>
         </div>
+        <div class="skill-item">
+          <h3>Next.js</h3>
+          <p>Modern frameworks for blazing-fast websites.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Python</h3>
+          <p>Powerful scripts and data processing.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Linux</h3>
+          <p>Efficient workflows and server management.</p>
+        </div>
+        <div class="skill-item">
+          <h3>League Mechanics</h3>
+          <p>Mastery of rotations, macros, and teamfights.</p>
+        </div>
+        <div class="skill-item">
+          <h3>Design</h3>
+          <p>Creating stunning UI/UX for gamers.</p>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-green-900 text-white py-8">
-        <div class="container mx-auto text-center">
-            <p>© 2025 BulgarianPoint.com - Всички права запазени</p>
-        </div>
-    </footer>
-
-    <!-- Chart.js Script -->
-    <script>
-        const ctx = document.getElementById('folkloreChart').getContext('2d');
-        const folkloreChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Народни песни', 'Приказки', 'Митове', 'Легенди', 'Танци'],
-                datasets: [{
-                    label: 'Процент на популярност',
-                    data: [80, 70, 50, 60, 90],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 99, 132, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 99, 132, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+  <footer>
+    <p>&copy; 2025 Kata Mid & Diana Jungle. Built with passion and skill. <a href="#contact">Contact me</a></p>
+  </footer>
 </body>
 </html>
