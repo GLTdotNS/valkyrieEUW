@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kata Mid & Diana Jungle</title>
+  <title>Tech Portfolio | Kata Mid</title>
   <style>
     /* Reset */
     * {
@@ -21,16 +21,16 @@
 
     /* Header */
     header {
-      background: linear-gradient(90deg, #e63946, #457b9d);
+      background: linear-gradient(90deg, #5a189a, #3c096c);
       padding: 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2rem;
       color: #fff;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
     }
 
     header span {
@@ -44,8 +44,8 @@
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 1.2rem;
+      margin: 0 10px;
+      font-size: 0.9rem;
       transition: color 0.3s;
     }
 
@@ -55,43 +55,56 @@
 
     /* Hero Section */
     .hero {
-      background: url('https://cdn.cloudflare.steamstatic.com/steam/apps/892970/header.jpg') center/cover no-repeat;
+      background: url('https://static.wikia.nocookie.net/leagueoflegends/images/3/37/Katarina_OriginalCentered.jpg') center/cover no-repeat;
       height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .hero h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #fff;
-      text-shadow: 2px 2px 10px #000;
+      text-shadow: 2px 2px 8px #000;
+      z-index: 2;
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #f4a261;
       text-shadow: 1px 1px 5px #000;
       margin-top: 10px;
+      z-index: 2;
     }
 
     /* About Section */
     .about {
-      padding: 50px 10px;
+      padding: 40px 10px;
       text-align: center;
       background: #1d3557;
     }
 
     .about h2 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: #f4a261;
       margin-bottom: 20px;
     }
 
     .about p {
-      font-size: 1.2rem;
-      line-height: 1.8;
+      font-size: 0.95rem;
+      line-height: 1.6;
       color: #eaeaea;
       max-width: 800px;
       margin: 0 auto;
@@ -99,45 +112,45 @@
 
     /* Skills Section */
     .skills {
-      padding: 50px 10px;
+      padding: 40px 10px;
       background: #0c0e13;
     }
 
     .skills h2 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       text-align: center;
       color: #f4a261;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
 
     .skill-item {
       background: #1d3557;
       color: #fff;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 8px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     .skill-item:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
     }
 
     .skill-item h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
     }
 
     .skill-item p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #ccc;
     }
 
@@ -150,33 +163,33 @@
     }
 
     footer p {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1>Kata <span>Mid</span> & Diana <span>Jungle</span></h1>
+    <h1>Kata <span>Mid</span> Tech Portfolio</h1>
     <nav>
-      <a href="#about">About Me</a>
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Welcome to My Gamer Portfolio</h2>
-    <p>League of Legends Enthusiast | Mid Lane Assassin | Jungle Expert</p>
+    <h2>Master the Code, Dominate the Rift</h2>
+    <p>Tech Enthusiast | Katarina Main | Linux Expert</p>
   </section>
 
   <!-- About Section -->
   <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-      I’m a passionate gamer who loves strategy, mechanics, and outplaying the competition.
-      As a <b>Katarina Mid</b> and <b>Diana Jungle</b> main, I excel in high-pressure situations and thrive on making game-changing plays.
-      When I’m not playing LoL, I work as a developer specializing in JavaScript, Next.js, Python, and Linux-based environments.
+      I’m a passionate developer and a gamer who thrives in solving complex problems and creating efficient solutions. 
+      My focus is on crafting fast, scalable web applications and mastering modern technologies like <b>JavaScript</b>, <b>Next.js</b>, <b>React</b>, and <b>Python</b>. 
+      Outside of coding, I enjoy honing my skills in League of Legends, specializing in mid-lane assassins like Katarina and optimizing jungle rotations with Diana.
     </p>
   </section>
 
@@ -186,34 +199,34 @@
     <div class="skills-grid">
       <div class="skill-item">
         <h3>JavaScript</h3>
-        <p>Dynamic and interactive web development.</p>
+        <p>Building dynamic, interactive applications.</p>
       </div>
       <div class="skill-item">
         <h3>Next.js</h3>
-        <p>Modern frameworks for blazing-fast websites.</p>
+        <p>Creating fast and scalable web solutions.</p>
+      </div>
+      <div class="skill-item">
+        <h3>React</h3>
+        <p>Developing modern, reusable components.</p>
       </div>
       <div class="skill-item">
         <h3>Python</h3>
-        <p>Powerful scripts and data processing.</p>
+        <p>Efficient scripting and data processing.</p>
       </div>
       <div class="skill-item">
         <h3>Linux</h3>
-        <p>Efficient workflows and server management.</p>
+        <p>Streamlining workflows and server management.</p>
       </div>
       <div class="skill-item">
-        <h3>League Mechanics</h3>
-        <p>Mastery of rotations, macros, and teamfights.</p>
-      </div>
-      <div class="skill-item">
-        <h3>UI/UX Design</h3>
-        <p>Creating stunning interfaces for gamers.</p>
+        <h3>Problem Solving</h3>
+        <p>Tackling challenges with logical solutions.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Kata Mid & Diana Jungle. Built with passion for gaming and technology.</p>
+    <p>&copy; 2025 Kata Mid Tech Portfolio. Built with passion for technology and gaming.</p>
   </footer>
 </body>
 </html>
