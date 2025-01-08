@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Portfolio | Kata Mid</title>
+  <title>Georgi Tonkov | Tech & Gaming Portfolio</title>
   <style>
-    /* Reset */
+    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -13,55 +13,86 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background: #0c0e13;
+      font-family: 'Poppins', sans-serif;
+      background: #0b0d15;
       color: #eaeaea;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Header */
-    header {
-      background: linear-gradient(90deg, #5a189a, #3c096c);
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    header span {
-      color: #f4a261;
-    }
-
+    /* Navigation Bar */
     nav {
-      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: linear-gradient(90deg, #14213d, #0b0d15);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #444;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
+    nav .logo {
+      font-size: 1.5rem;
       color: #f4a261;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    nav .logo:hover {
+      transform: scale(1.1);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #eaeaea;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 10px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f4a261;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #f4a261;
+      transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     /* Hero Section */
     .hero {
+      height: 90vh;
       background: url('https://static.wikia.nocookie.net/leagueoflegends/images/3/37/Katarina_OriginalCentered.jpg') center/cover no-repeat;
-      height: 70vh;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
     }
 
     .hero::before {
@@ -72,124 +103,138 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
     }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      color: #fff;
-      text-shadow: 2px 2px 8px #000;
+    .hero h1 {
+      font-size: 3rem;
+      color: #f4a261;
       z-index: 2;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #f4a261;
-      text-shadow: 1px 1px 5px #000;
-      margin-top: 10px;
+      color: #eaeaea;
+      margin-top: 15px;
       z-index: 2;
+    }
+
+    .hero .cta {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #0b0d15;
+      background: #f4a261;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero .cta:hover {
+      background: #e76f51;
+      transform: scale(1.05);
     }
 
     /* About Section */
     .about {
-      padding: 40px 10px;
+      padding: 80px 20px;
+      background: #14213d;
       text-align: center;
-      background: #1d3557;
     }
 
     .about h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #f4a261;
-      margin-bottom: 20px;
     }
 
     .about p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #eaeaea;
+      margin-top: 20px;
+      font-size: 1rem;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 20px auto;
+      color: #eaeaea;
     }
 
     /* Skills Section */
     .skills {
-      padding: 40px 10px;
-      background: #0c0e13;
+      padding: 80px 20px;
+      background: #0b0d15;
     }
 
     .skills h2 {
-      font-size: 1.8rem;
-      text-align: center;
+      font-size: 2rem;
       color: #f4a261;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
 
-    .skill-item {
-      background: #1d3557;
-      color: #fff;
-      padding: 15px;
-      border-radius: 8px;
+    .skill-card {
+      background: #14213d;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .skill-item:hover {
+    .skill-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     }
 
-    .skill-item h3 {
+    .skill-card h3 {
       font-size: 1.2rem;
-      margin-bottom: 8px;
+      color: #f4a261;
+      margin-bottom: 10px;
     }
 
-    .skill-item p {
+    .skill-card p {
+      color: #eaeaea;
       font-size: 0.9rem;
-      color: #ccc;
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      background: #1d3557;
-      color: #f4a261;
-    }
-
-    footer p {
-      font-size: 0.9rem;
+      background: #14213d;
+      color: #eaeaea;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Kata <span>Mid</span> Tech Portfolio</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-    </nav>
-  </header>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Georgi Tonkov</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Master the Code, Dominate the Rift</h2>
-    <p>Tech Enthusiast | Katarina Main | Linux Expert</p>
+    <div>
+      <h1>Welcome to My Portfolio</h1>
+      <p>Linux Enthusiast | Frontend Developer | Kata Main</p>
+      <button class="cta">Explore More</button>
+    </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-      I’m a passionate developer and a gamer who thrives in solving complex problems and creating efficient solutions. 
-      My focus is on crafting fast, scalable web applications and mastering modern technologies like <b>JavaScript</b>, <b>Next.js</b>, <b>React</b>, and <b>Python</b>. 
-      Outside of coding, I enjoy honing my skills in League of Legends, specializing in mid-lane assassins like Katarina and optimizing jungle rotations with Diana.
+      Hi, I'm Georgi Tonkov, a tech enthusiast with a passion for building modern web applications. 
+      I'm experienced in JavaScript, React, Next.js, and Python, and I excel in creating efficient solutions and scalable projects. 
+      When I'm not coding, you can find me climbing the League of Legends ladder as a mid-lane assassin.
     </p>
   </section>
 
@@ -197,36 +242,32 @@
   <section id="skills" class="skills">
     <h2>My Skills</h2>
     <div class="skills-grid">
-      <div class="skill-item">
+      <div class="skill-card">
         <h3>JavaScript</h3>
         <p>Building dynamic, interactive applications.</p>
       </div>
-      <div class="skill-item">
-        <h3>Next.js</h3>
-        <p>Creating fast and scalable web solutions.</p>
-      </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <h3>React</h3>
-        <p>Developing modern, reusable components.</p>
+        <p>Developing reusable, modern components.</p>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
+        <h3>Next.js</h3>
+        <p>Fast, scalable web solutions.</p>
+      </div>
+      <div class="skill-card">
         <h3>Python</h3>
-        <p>Efficient scripting and data processing.</p>
+        <p>Efficient scripting and data handling.</p>
       </div>
-      <div class="skill-item">
+      <div class="skill-card">
         <h3>Linux</h3>
-        <p>Streamlining workflows and server management.</p>
-      </div>
-      <div class="skill-item">
-        <h3>Problem Solving</h3>
-        <p>Tackling challenges with logical solutions.</p>
+        <p>Streamlining workflows and servers.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Kata Mid Tech Portfolio. Built with passion for technology and gaming.</p>
+    <p>&copy; 2025 Georgi Tonkov. All rights reserved.</p>
   </footer>
 </body>
 </html>
