@@ -1,296 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgi Tonkov | Portfolio</title>
-  <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #eaeaea;
-      background-color: #0b0d15;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: linear-gradient(90deg, #0b0d15, #14213d);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    nav .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #f4a261;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    nav .logo:hover {
-      transform: scale(1.1);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav ul li a {
-      font-size: 1rem;
-      padding: 5px 10px;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #f4a261;
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      background: url('https://static.wikia.nocookie.net/leagueoflegends/images/3/37/Katarina_OriginalCentered.jpg') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      color: #f4a261;
-      z-index: 2;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
-    }
-
-    .hero p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #eaeaea;
-      z-index: 2;
-    }
-
-    .hero .cta {
-      margin-top: 30px;
-      font-size: 1rem;
-      background: #f4a261;
-      color: #0b0d15;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, transform 0.3s;
-    }
-
-    .hero .cta:hover {
-      background: #14213d;
-      color: #f4a261;
-      transform: scale(1.1);
-    }
-
-    /* About Section */
-    .about {
-      padding: 80px 50px;
-      text-align: center;
-      background: #1f2937;
-      color: #eaeaea;
-    }
-
-    .about h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #f4a261;
-    }
-
-    .about p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-
-    .about .socials a {
-      font-size: 1.5rem;
-      margin: 10px;
-      color: #eaeaea;
-      transition: color 0.3s;
-    }
-
-    .about .socials a:hover {
-      color: #f4a261;
-    }
-
-    /* Skills Section */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 30px;
-      padding: 60px 50px;
-      background: #14213d;
-    }
-
-    .skills h3 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      color: #f4a261;
-    }
-
-    .skills .skill {
-      background: #1f2937;
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .skills .skill:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .skills .skill h4 {
-      font-size: 1.3rem;
-      color: #f4a261;
-      margin-bottom: 15px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 40px 50px;
-      text-align: center;
-      background: #0b0d15;
-      color: #eaeaea;
-    }
-
-    footer p {
-      font-size: 1rem;
-      color: #eaeaea;
-    }
-
-    footer a {
-      color: #f4a261;
-      font-weight: bold;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .about h2 {
-        font-size: 2rem;
-      }
-
-      .skills .skill {
-        padding: 15px;
-      }
-
-      .skills h3 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgi Tonkov - Web Developer CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">Georgi Tonkov</div>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-    </ul>
-  </nav>
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col justify-center items-center text-center bg-gray-900 text-white px-6">
+        <h1 class="text-5xl font-bold">Georgi Tonkov</h1>
+        <p class="text-xl mt-4">Full-Stack Web Developer | Next.js | Python | Tailwind CSS</p>
+        <p class="mt-6 max-w-2xl text-lg">I specialize in building high-performance, scalable web applications. Passionate about modern front-end and back-end technologies, I create efficient, user-friendly digital experiences.</p>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Developer, Gamer, and Tech Enthusiast</p>
-    <button class="cta">Contact Me</button>
-  </section>
+    <!-- About Section -->
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold">About Me</h2>
+        <p class="mt-6 text-gray-700 text-lg">
+            With years of experience in web development, I focus on crafting scalable, optimized, and visually appealing applications. I have expertise in **Next.js, React, Tailwind CSS, Python, and Sanity.io**.  
+            My approach emphasizes **performance, security, and user experience**.
+        </p>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Georgi Tonkov. I'm a passionate developer who loves gaming and technology. I specialize in JavaScript, Next.js, Python, and Linux, and enjoy developing interactive and user-centric web applications. Welcome to my portfolio!</p>
-    <div class="socials">
-      <a href="https://github.com/GLTdotNS" target="_blank">GitHub</a>
-      <a href="https://twitch.tv/valkyrieeuw" target="_blank">Twitch</a>
-      <a href="https://georgitonkov.com" target="_blank">Blog</a>
-      <a href="https://bulgariantpoint.com" target="_blank">Bulgariant Point</a>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section class="py-16 bg-gray-200 px-6">
+        <h2 class="text-3xl font-bold text-center">Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 text-center">
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">Next.js</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">React.js</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">Tailwind CSS</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">Sanity.io</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">Python</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">Node.js</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">MySQL & PostgreSQL</p>
+            </div>
+            <div class="bg-white p-4 shadow-lg rounded-lg">
+                <p class="text-xl font-semibold">REST & GraphQL APIs</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <h3>My Skills</h3>
-    <div class="skill">
-      <h4>JavaScript</h4>
-      <p>Expert in building interactive web apps</p>
-    </div>
-    <div class="skill">
-      <h4>Next.js</h4>
-      <p>Building fast, optimized websites</p>
-    </div>
-    <div class="skill">
-      <h4>Python</h4>
-      <p>Experienced in backend and automation</p>
-    </div>
-    <div class="skill">
-      <h4>Linux</h4>
-      <p>Familiar with system administration</p>
-    </div>
-  </section>
+    <!-- Experience Section -->
+    <section class="py-16 px-6">
+        <h2 class="text-3xl font-bold text-center">Experience</h2>
+        <div class="mt-8 space-y-6 max-w-3xl mx-auto">
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold">Full-Stack Web Developer</h3>
+                <p class="text-gray-600 mt-2">Freelance | 2020 - Present</p>
+                <ul class="list-disc list-inside text-gray-700 mt-4">
+                    <li>Developed custom websites and web applications using **Next.js, Tailwind CSS, and Sanity.io**.</li>
+                    <li>Implemented **optimized UI/UX** designs for high-performance applications.</li>
+                    <li>Built and maintained **scalable RESTful APIs** with Python and Node.js.</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold">Backend Developer</h3>
+                <p class="text-gray-600 mt-2">Company Name | 2018 - 2020</p>
+                <ul class="list-disc list-inside text-gray-700 mt-4">
+                    <li>Designed and optimized backend solutions with **Python and PostgreSQL**.</li>
+                    <li>Developed authentication and security features.</li>
+                    <li>Managed **server infrastructure and network configurations**.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>2025 &copy; Georgi Tonkov. All rights reserved. <a href="https://georgitonkov.com" target="_blank">Blog</a></p>
-  </footer>
+    <!-- Projects Section -->
+    <section class="py-16 bg-gray-200 px-6">
+        <h2 class="text-3xl font-bold text-center">Projects</h2>
+        <div class="mt-8 space-y-6 max-w-3xl mx-auto">
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold">Personal Portfolio</h3>
+                <p class="text-gray-600 mt-2">Built with **Next.js, Tailwind CSS, and Sanity.io**.</p>
+                <a href="#" class="text-blue-600 mt-2 inline-block">View Project</a>
+            </div>
+            <div class="bg-white p-6 shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold">E-commerce Platform</h3>
+                <p class="text-gray-600 mt-2">Developed a full-stack e-commerce site with **React, Node.js, and PostgreSQL**.</p>
+                <a href="#" class="text-blue-600 mt-2 inline-block">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 px-6 text-center">
+        <h2 class="text-3xl font-bold">Contact</h2>
+        <p class="mt-4 text-gray-700 text-lg">Email: <a href="mailto:georgi@example.com" class="text-blue-600">georgi@example.com</a></p>
+        <p class="mt-2 text-gray-700 text-lg">GitHub: <a href="#" class="text-blue-600">github.com/GeorgiTonkov</a></p>
+        <p class="mt-2 text-gray-700 text-lg">LinkedIn: <a href="#" class="text-blue-600">linkedin.com/in/GeorgiTonkov</a></p>
+    </section>
 
 </body>
 </html>
