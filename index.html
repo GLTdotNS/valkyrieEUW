@@ -3,84 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Georgi Tonkov - Web Developer CV</title>
+    <title>Georgi Tonkov - Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { scroll-behavior: smooth; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-in-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900">
 
     <!-- Hero Section -->
-    <section class="h-screen flex flex-col justify-center items-center text-center bg-gray-900 text-white px-6">
-        <h1 class="text-5xl font-bold">Georgi Tonkov</h1>
-        <p class="text-xl mt-4">Full-Stack Web Developer | Next.js | Python | Tailwind CSS</p>
-        <p class="mt-6 max-w-2xl text-lg">I specialize in building high-performance, scalable web applications. Passionate about modern front-end and back-end technologies, I create efficient, user-friendly digital experiences.</p>
-    </section>
+    <header class="flex flex-col items-center text-center py-16 bg-gray-900 text-white px-6">
+        <h1 class="text-4xl md:text-5xl font-bold">Georgi Tonkov</h1>
+        <p class="text-lg md:text-xl mt-3">Full-Stack Web Developer | Next.js | Python | Tailwind CSS</p>
+        <p class="mt-4 max-w-2xl text-md md:text-lg">Building modern, scalable, and high-performance web applications.</p>
+        <a href="#contact" class="mt-6 bg-yellow-400 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">
+            Contact Me
+        </a>
+    </header>
 
-    <!-- About Section -->
-    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <!-- About Me -->
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center fade-in">
         <h2 class="text-3xl font-bold">About Me</h2>
         <p class="mt-6 text-gray-700 text-lg">
-            With years of experience in web development, I focus on crafting scalable, optimized, and visually appealing applications. I have expertise in **Next.js, React, Tailwind CSS, Python, and Sanity.io**.  
-            My approach emphasizes **performance, security, and user experience**.
+            I specialize in **React, Next.js, Python**, and **Sanity.io**, creating **high-performance applications** that prioritize user experience, accessibility, and security.
         </p>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Grid -->
     <section class="py-16 bg-gray-200 px-6">
         <h2 class="text-3xl font-bold text-center">Skills</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 text-center">
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">Next.js</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">React.js</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">Tailwind CSS</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">Sanity.io</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">Python</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">Node.js</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
                 <p class="text-xl font-semibold">MySQL & PostgreSQL</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
-                <p class="text-xl font-semibold">REST & GraphQL APIs</p>
+            <div class="bg-white p-4 shadow-lg rounded-lg transition hover:scale-105">
+                <p class="text-xl font-semibold">REST & GraphQL</p>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="py-16 px-6">
+    <!-- Experience -->
+    <section class="py-16 px-6 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-center">Experience</h2>
-        <div class="mt-8 space-y-6 max-w-3xl mx-auto">
+        <div class="mt-8 space-y-6">
             <div class="bg-white p-6 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold">Full-Stack Web Developer</h3>
                 <p class="text-gray-600 mt-2">Freelance | 2020 - Present</p>
                 <ul class="list-disc list-inside text-gray-700 mt-4">
-                    <li>Developed custom websites and web applications using **Next.js, Tailwind CSS, and Sanity.io**.</li>
-                    <li>Implemented **optimized UI/UX** designs for high-performance applications.</li>
-                    <li>Built and maintained **scalable RESTful APIs** with Python and Node.js.</li>
+                    <li>Built custom web apps using **Next.js, Tailwind CSS, and Sanity.io**.</li>
+                    <li>Developed optimized UI/UX for **high-performance apps**.</li>
+                    <li>Built and maintained **secure, scalable RESTful APIs**.</li>
                 </ul>
             </div>
             <div class="bg-white p-6 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold">Backend Developer</h3>
                 <p class="text-gray-600 mt-2">Company Name | 2018 - 2020</p>
                 <ul class="list-disc list-inside text-gray-700 mt-4">
-                    <li>Designed and optimized backend solutions with **Python and PostgreSQL**.</li>
-                    <li>Developed authentication and security features.</li>
-                    <li>Managed **server infrastructure and network configurations**.</li>
+                    <li>Designed and optimized backend solutions with **Python & PostgreSQL**.</li>
+                    <li>Developed **authentication and security** features.</li>
+                    <li>Managed **server infrastructure and networking**.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section class="py-16 bg-gray-200 px-6">
         <h2 class="text-3xl font-bold text-center">Projects</h2>
         <div class="mt-8 space-y-6 max-w-3xl mx-auto">
@@ -91,19 +98,27 @@
             </div>
             <div class="bg-white p-6 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold">E-commerce Platform</h3>
-                <p class="text-gray-600 mt-2">Developed a full-stack e-commerce site with **React, Node.js, and PostgreSQL**.</p>
+                <p class="text-gray-600 mt-2">Built a **full-stack e-commerce site** with **React, Node.js, and PostgreSQL**.</p>
                 <a href="#" class="text-blue-600 mt-2 inline-block">View Project</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-16 px-6 text-center">
+    <!-- Contact -->
+    <section id="contact" class="py-16 px-6 text-center">
         <h2 class="text-3xl font-bold">Contact</h2>
         <p class="mt-4 text-gray-700 text-lg">Email: <a href="mailto:georgi@example.com" class="text-blue-600">georgi@example.com</a></p>
         <p class="mt-2 text-gray-700 text-lg">GitHub: <a href="#" class="text-blue-600">github.com/GeorgiTonkov</a></p>
         <p class="mt-2 text-gray-700 text-lg">LinkedIn: <a href="#" class="text-blue-600">linkedin.com/in/GeorgiTonkov</a></p>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".fade-in").forEach(el => {
+                setTimeout(() => el.classList.add("visible"), 300);
+            });
+        });
+    </script>
 
 </body>
 </html>
