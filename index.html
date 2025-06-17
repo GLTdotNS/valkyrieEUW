@@ -1,396 +1,95 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wild Rift AI Build Генератор</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .champ-selected {
-      outline: 3px solid #06b6d4; /* cyan-500 */
-      outline-offset: 3px;
-      transform: scale(1.05);
-      transition: transform 0.2s, outline 0.2s;
-      border-radius: 0.5rem;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wild Rift AI Build Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-6">
+<body class="bg-gray-900 text-white font-sans">
 
-  <h1 class="text-4xl font-extrabold mb-8 text-center">Wild Rift AI Build Генератор</h1>
+  <header class="text-center py-8 bg-gray-800 shadow-lg">
+    <h1 class="text-4xl font-bold text-teal-300">Wild Rift Build Assistant</h1>
+    <p class="text-gray-400 mt-2">Избери шампионите и ще ти дадем най-добрите билдове чрез AI</p>
+  </header>
 
-  <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+  <main class="max-w-6xl mx-auto p-4">
+    <h2 class="text-2xl font-semibold mb-4">Избери шампионите:</h2>
+    <div id="champGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
 
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Твоя шампион</h2>
-      <div id="champions" class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4"></div>
-    </section>
+    <button
+      class="mt-8 px-6 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition"
+      onclick="simulateBuilds()"
+    >
+      Генерирай AI билдове
+    </button>
 
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Враг шампион</h2>
-      <div id="enemies" class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4"></div>
-    </section>
+    <div id="result" class="mt-6 text-teal-300 text-lg"></div>
+  </main>
 
-  </div>
+  <script>
+    const wrChampions = [
+      "Ahri", "Akali", "Alistar", "Amumu", "Annie", "Aphelios", "Ashe", "AurelionSol",
+      "Blitzcrank", "Caitlyn", "Camille", "Darius", "Diana", "DrMundo", "Draven", "Ekko",
+      "Elise", "Evelynn", "Ezreal", "Fiora", "Fizz", "Garen", "Gragas", "Graves",
+      "Hecarim", "Heimerdinger", "Irelia", "Janna", "JarvanIV", "Jax", "Jayce", "Jhin",
+      "Jinx", "KaiSa", "Kalista", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle",
+      "Kayn", "Kennen", "KhaZix", "Kindred", "Kled", "Leona", "LeeSin", "Lillia",
+      "Lissandra", "Lucian", "Lulu", "Lux", "Malphite", "Malzahar", "Maokai", "MasterYi",
+      "MissFortune", "Mordekaiser", "Morgana", "Nami", "Nasus", "Nautilus", "Neeko",
+      "Nidalee", "Nocturne", "Nunu", "Olaf", "Orianna", "Ornn", "Pantheon", "Poppy",
+      "Pyke", "Qiyana", "Quinn", "Rakan", "Rammus", "RekSai", "Renekton", "Rengar",
+      "Riven", "Rumble", "Ryze", "Sejuani", "Senna", "Seraphine", "Sett", "Shen",
+      "Shyvana", "Singed", "Sion", "Sivir", "Skarner", "Sona", "Soraka", "Swain",
+      "Sylas", "Syndra", "TahmKench", "Taliyah", "Talon", "Taric", "Teemo", "Thresh",
+      "Tristana", "Trundle", "Tryndamere", "TwistedFate", "Twitch", "Udyr", "Urgot",
+      "Varus", "Vayne", "Veigar", "VelKoz", "Vi", "Viego", "Viktor", "Vladimir",
+      "Volibear", "Warwick", "Wukong", "Xayah", "Xerath", "XinZhao", "Yasuo", "Yone",
+      "Yorick", "Yuumi", "Zed", "Ziggs", "Zilean", "Zoe", "Zyra"
+    ];
 
-  <button
-    id="generateBtn"
-    class="mt-10 bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transition"
-  >
-    Генерирай билд
-  </button>
+    const selected = new Set();
 
-  <div id="result" class="max-w-4xl mt-10 bg-gray-800 rounded-lg p-6 hidden">
-    <h2 class="text-3xl font-bold mb-4">
-      AI Гайд за <span id="champName"></span> срещу <span id="enemyName"></span>
-    </h2>
+    function createChampCard(name) {
+      const champName = name.replace(/\s+/g, '');
+      const imgUrl = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champName}.png`;
 
-    <p><strong>Руни:</strong> <span id="runes"></span></p>
-    <pre class="whitespace-pre-wrap mt-3"><strong>Билд:</strong> <span id="build"></span></pre>
-    <p class="mt-3"><strong>Стратегия:</strong> <span id="strategy"></span></p>
-  </div>
-
-<script>
-  // Списък с всички шампиони от Wild Rift (важни имена и ID-та)
-  // Използваме иконите от Riot CDN (като League of Legends, защото Wild Rift ги ползва)
-  const allChampions = [
-    "Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe",
-    "AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille",
-    "Cassiopeia","ChoGath","Corki","Darius","Diana","DrMundo","Draven","Ekko",
-    "Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank",
-    "Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Irelia","Janna",
-    "JarvanIV","Jax","Jayce","Jhin","Jinx","KaiSa","Kalista","Karma","Karthus",
-    "Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled",
-    "KogMaw","LeBlanc","LeeSin","Leona","Lillia","Lissandra","Lucian","Lulu",
-    "Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser",
-    "Morgana","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu",
-    "Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan",
-    "Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna",
-    "Seraphine","Sett","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona",
-    "Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo",
-    "Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr",
-    "Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viego","Viktor","Vladimir",
-    "Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yone",
-    "Yorick","Yuumi","Zed","Ziggs","Zilean","Zoe","Zyra"
-  ];
-
-  // Конвертираме към обекти с име и URL за икона
-  const champions = allChampions.map(champ => ({
-    id: champ.toLowerCase(),
-    name: champ.replace(/([A-Z])/g, ' $1').trim(), // Добавяме интервали пред главните букви (пример: AurelionSol -> Aurelion Sol)
-    img: `https://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${champ}.png`
-  }));
-
-  // За враговете използваме същите шампиони (може да се променя по-късно)
-  const enemies = champions;
-
-  // Фиктивни билдове, само за демо - само за няколко шампиона (иначе няма смисъл да е пълно)
-  const data = {
-    kalista: {
-      varus: {
-        runes: "Conqueror, Brutal, Bone Plating, Sweet Tooth",
-        build:
-          "1. Blade of the Ruined King\n2. Runaan's Hurricane\n3. Bloodthirster\n4. Mortal Reminder\n5. Guardian Angel\n6. Boots of Alacrity + Stasis",
-        strategy:
-          "Kalista е ефективна срещу бавни champions като Varus и Orianna, но трябва да внимава за engage от Vi и Darius. Играй около Leona и Amumu за сигурен engage. Използвай ulti-то си за save или инициация. Позиционирай се зад танковете и използвай мобилността си, за да избягваш skillshots и да стакваш Rend."
-      }
-    },
-    ezreal: {
-      lulu: {
-        runes: "Hail of Blades, Brutal, Taste of Blood, Ravenous Hunter",
-        build:
-          "1. Trinity Force\n2. Manamune\n3. Blade of the Ruined King\n4. Guardian Angel\n5. Mortal Reminder\n6. Boots of Swiftness",
-        strategy:
-          "Ezreal с Lulu като support има силен poke и защитни опции. Използвай E за позициониране и избягване на crowd control. Внимавай за gap closers на Vi."
-      }
-    }
-  };
-
-  const champsContainer = document.getElementById("champions");
-  const enemiesContainer = document.getElementById("enemies");
-
-  let selectedChamp = null;
-  let selectedEnemy = null;
-
-  function renderChampions() {
-    champions.forEach(champ => {
-      const div = document.createElement("div");
-      div.className = "cursor-pointer p-2 rounded-lg hover:bg-gray-700 transition flex flex-col items-center";
+      const div = document.createElement('div');
+      div.className = "cursor-pointer border border-gray-700 rounded-lg overflow-hidden hover:scale-105 transition shadow-lg";
       div.innerHTML = `
-        <img src="${champ.img}" alt="${champ.id}" class="w-16 h-16 object-contain mb-2 rounded" />
-        <span class="text-sm text-center">${champ.name}</span>
+        <img src="${imgUrl}" alt="${name}" class="w-full h-24 object-cover bg-gray-800" />
+        <div class="text-center py-1 text-sm">${name}</div>
       `;
-      div.addEventListener("click", () => {
-        selectedChamp = champ.id;
-        highlightSelected(champsContainer, champ.id);
+
+      div.onclick = () => {
+        if (selected.has(name)) {
+          selected.delete(name);
+          div.classList.remove('ring-4', 'ring-teal-400');
+        } else {
+          selected.add(name);
+          div.classList.add('ring-4', 'ring-teal-400');
+        }
+      };
+
+      return div;
+    }
+
+    function populateGrid() {
+      const grid = document.getElementById('champGrid');
+      wrChampions.forEach(name => {
+        const card = createChampCard(name);
+        grid.appendChild(card);
       });
-      champsContainer.appendChild(div);
-    });
-  }
-
-  function renderEnemies() {
-    enemies.forEach(enemy => {
-      const div = document.createElement("div");
-      div.className = "cursor-pointer p-2 rounded-lg hover:bg-gray-700 transition flex flex-col items-center";
-      div.innerHTML = `
-        <img src="${enemy.img}" alt="${enemy.id}" class="w-16 h-16 object-contain mb-2 rounded" />
-        <span class="text-sm text-center">${enemy.name}</span>
-      `;
-      div.addEventListener("click", () => {
-        selectedEnemy = enemy.id;
-        highlightSelected(enemiesContainer, enemy.id);
-      });
-      enemiesContainer.appendChild(div);
-    });
-  }
-
-  function highlightSelected(container, selectedId) {
-    Array.from(container.children).forEach(child => {
-      child.classList.remove("champ-selected");
-      const img = child.querySelector("img");
-      if (img.getAttribute("alt") === selectedId) {
-        child.classList.add("champ-selected");
-      }
-    });
-  }
-
-  document.getElementById("generateBtn").addEventListener("click", () => {
-    if (!selectedChamp || !selectedEnemy) {
-      alert("Моля, избери шампион и враг!");
-      return;
     }
 
-    const champNameSpan = document.getElementById("champName");
-    const enemyNameSpan = document.getElementById("enemyName");
-    const runesSpan = document.getElementById("runes");
-    const buildSpan = document.getElementById("build");
-    const strategySpan = document.getElementById("strategy");
-    const resultDiv = document.getElementById("result");
-
-    if (data[selectedChamp] && data[selectedChamp][selectedEnemy]) {
-      const info = data[selectedChamp][selectedEnemy];
-      champNameSpan.textContent = capitalize(selectedChamp);
-      enemyNameSpan.textContent = capitalize(selectedEnemy);
-      runesSpan.textContent = info.runes;
-      buildSpan.textContent = info.build;
-      strategySpan.textContent = info.strategy;
-    } else {
-      champNameSpan.textContent = capitalize(selectedChamp);
-      enemyNameSpan.textContent = capitalize(selectedEnemy);
-      runesSpan.textContent = "Няма данни за този matchup.";
-      buildSpan.textContent = "";
-      strategySpan.textContent = "";
+    function simulateBuilds() {
+      const output = Array.from(selected).join(', ');
+      document.getElementById('result').textContent = output
+        ? `AI ще анализира следните шампиони: ${output}`
+        : 'Моля, избери поне един шампион.';
     }
 
-    resultDiv.classList.remove("hidden");
-  });
-
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  renderChampions();
-  renderEnemies();
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="bg">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wild Rift AI Build Генератор</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .champ-selected {
-      outline: 3px solid #06b6d4; /* cyan-500 */
-      outline-offset: 3px;
-      transform: scale(1.05);
-      transition: transform 0.2s, outline 0.2s;
-      border-radius: 0.5rem;
-    }
-  </style>
-</head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-6">
-
-  <h1 class="text-4xl font-extrabold mb-8 text-center">Wild Rift AI Build Генератор</h1>
-
-  <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Твоя шампион</h2>
-      <div id="champions" class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4"></div>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Враг шампион</h2>
-      <div id="enemies" class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4"></div>
-    </section>
-
-  </div>
-
-  <button
-    id="generateBtn"
-    class="mt-10 bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transition"
-  >
-    Генерирай билд
-  </button>
-
-  <div id="result" class="max-w-4xl mt-10 bg-gray-800 rounded-lg p-6 hidden">
-    <h2 class="text-3xl font-bold mb-4">
-      AI Гайд за <span id="champName"></span> срещу <span id="enemyName"></span>
-    </h2>
-
-    <p><strong>Руни:</strong> <span id="runes"></span></p>
-    <pre class="whitespace-pre-wrap mt-3"><strong>Билд:</strong> <span id="build"></span></pre>
-    <p class="mt-3"><strong>Стратегия:</strong> <span id="strategy"></span></p>
-  </div>
-
-<script>
-  // Списък с всички шампиони от Wild Rift (важни имена и ID-та)
-  // Използваме иконите от Riot CDN (като League of Legends, защото Wild Rift ги ползва)
-  const allChampions = [
-    "Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe",
-    "AurelionSol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille",
-    "Cassiopeia","ChoGath","Corki","Darius","Diana","DrMundo","Draven","Ekko",
-    "Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank",
-    "Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Irelia","Janna",
-    "JarvanIV","Jax","Jayce","Jhin","Jinx","KaiSa","Kalista","Karma","Karthus",
-    "Kassadin","Katarina","Kayle","Kayn","Kennen","KhaZix","Kindred","Kled",
-    "KogMaw","LeBlanc","LeeSin","Leona","Lillia","Lissandra","Lucian","Lulu",
-    "Lux","Malphite","Malzahar","Maokai","MasterYi","MissFortune","Mordekaiser",
-    "Morgana","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu",
-    "Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan",
-    "Rammus","RekSai","Renekton","Rengar","Riven","Rumble","Ryze","Sejuani","Senna",
-    "Seraphine","Sett","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona",
-    "Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo",
-    "Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr",
-    "Urgot","Varus","Vayne","Veigar","VelKoz","Vi","Viego","Viktor","Vladimir",
-    "Volibear","Warwick","Wukong","Xayah","Xerath","XinZhao","Yasuo","Yone",
-    "Yorick","Yuumi","Zed","Ziggs","Zilean","Zoe","Zyra"
-  ];
-
-  // Конвертираме към обекти с име и URL за икона
-  const champions = allChampions.map(champ => ({
-    id: champ.toLowerCase(),
-    name: champ.replace(/([A-Z])/g, ' $1').trim(), // Добавяме интервали пред главните букви (пример: AurelionSol -> Aurelion Sol)
-    img: `https://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${champ}.png`
-  }));
-
-  // За враговете използваме същите шампиони (може да се променя по-късно)
-  const enemies = champions;
-
-  // Фиктивни билдове, само за демо - само за няколко шампиона (иначе няма смисъл да е пълно)
-  const data = {
-    kalista: {
-      varus: {
-        runes: "Conqueror, Brutal, Bone Plating, Sweet Tooth",
-        build:
-          "1. Blade of the Ruined King\n2. Runaan's Hurricane\n3. Bloodthirster\n4. Mortal Reminder\n5. Guardian Angel\n6. Boots of Alacrity + Stasis",
-        strategy:
-          "Kalista е ефективна срещу бавни champions като Varus и Orianna, но трябва да внимава за engage от Vi и Darius. Играй около Leona и Amumu за сигурен engage. Използвай ulti-то си за save или инициация. Позиционирай се зад танковете и използвай мобилността си, за да избягваш skillshots и да стакваш Rend."
-      }
-    },
-    ezreal: {
-      lulu: {
-        runes: "Hail of Blades, Brutal, Taste of Blood, Ravenous Hunter",
-        build:
-          "1. Trinity Force\n2. Manamune\n3. Blade of the Ruined King\n4. Guardian Angel\n5. Mortal Reminder\n6. Boots of Swiftness",
-        strategy:
-          "Ezreal с Lulu като support има силен poke и защитни опции. Използвай E за позициониране и избягване на crowd control. Внимавай за gap closers на Vi."
-      }
-    }
-  };
-
-  const champsContainer = document.getElementById("champions");
-  const enemiesContainer = document.getElementById("enemies");
-
-  let selectedChamp = null;
-  let selectedEnemy = null;
-
-  function renderChampions() {
-    champions.forEach(champ => {
-      const div = document.createElement("div");
-      div.className = "cursor-pointer p-2 rounded-lg hover:bg-gray-700 transition flex flex-col items-center";
-      div.innerHTML = `
-        <img src="${champ.img}" alt="${champ.id}" class="w-16 h-16 object-contain mb-2 rounded" />
-        <span class="text-sm text-center">${champ.name}</span>
-      `;
-      div.addEventListener("click", () => {
-        selectedChamp = champ.id;
-        highlightSelected(champsContainer, champ.id);
-      });
-      champsContainer.appendChild(div);
-    });
-  }
-
-  function renderEnemies() {
-    enemies.forEach(enemy => {
-      const div = document.createElement("div");
-      div.className = "cursor-pointer p-2 rounded-lg hover:bg-gray-700 transition flex flex-col items-center";
-      div.innerHTML = `
-        <img src="${enemy.img}" alt="${enemy.id}" class="w-16 h-16 object-contain mb-2 rounded" />
-        <span class="text-sm text-center">${enemy.name}</span>
-      `;
-      div.addEventListener("click", () => {
-        selectedEnemy = enemy.id;
-        highlightSelected(enemiesContainer, enemy.id);
-      });
-      enemiesContainer.appendChild(div);
-    });
-  }
-
-  function highlightSelected(container, selectedId) {
-    Array.from(container.children).forEach(child => {
-      child.classList.remove("champ-selected");
-      const img = child.querySelector("img");
-      if (img.getAttribute("alt") === selectedId) {
-        child.classList.add("champ-selected");
-      }
-    });
-  }
-
-  document.getElementById("generateBtn").addEventListener("click", () => {
-    if (!selectedChamp || !selectedEnemy) {
-      alert("Моля, избери шампион и враг!");
-      return;
-    }
-
-    const champNameSpan = document.getElementById("champName");
-    const enemyNameSpan = document.getElementById("enemyName");
-    const runesSpan = document.getElementById("runes");
-    const buildSpan = document.getElementById("build");
-    const strategySpan = document.getElementById("strategy");
-    const resultDiv = document.getElementById("result");
-
-    if (data[selectedChamp] && data[selectedChamp][selectedEnemy]) {
-      const info = data[selectedChamp][selectedEnemy];
-      champNameSpan.textContent = capitalize(selectedChamp);
-      enemyNameSpan.textContent = capitalize(selectedEnemy);
-      runesSpan.textContent = info.runes;
-      buildSpan.textContent = info.build;
-      strategySpan.textContent = info.strategy;
-    } else {
-      champNameSpan.textContent = capitalize(selectedChamp);
-      enemyNameSpan.textContent = capitalize(selectedEnemy);
-      runesSpan.textContent = "Няма данни за този matchup.";
-      buildSpan.textContent = "";
-      strategySpan.textContent = "";
-    }
-
-    resultDiv.classList.remove("hidden");
-  });
-
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  renderChampions();
-  renderEnemies();
-
-</script>
-
+    populateGrid();
+  </script>
 </body>
 </html>
