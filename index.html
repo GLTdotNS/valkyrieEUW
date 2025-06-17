@@ -65,6 +65,14 @@
     </div>
   </section>
 
+  <!-- AI Build Output -->
+  <section id="ai-build" class="py-12 bg-gray-900 px-4 hidden">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl text-teal-300 mb-6 font-semibold">AI билд & шансове за победа</h2>
+      <p id="ai-result" class="text-gray-300 text-lg"></p>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-center py-10 px-4" id="contact">
     <p class="text-gray-400">&copy; 2025 WR.GG – All Rights Reserved</p>
@@ -90,6 +98,12 @@
 
     const grid = document.getElementById("champGrid");
     const buttons = document.querySelectorAll(".role-btn");
+    const aiBuildSection = document.getElementById("ai-build");
+    const aiResult = document.getElementById("ai-result");
+
+    function getFakeAiBuild(champName) {
+      return `Избран шампион: <strong>${champName}</strong><br>Препоръчан билд: <span class='text-teal-400'>Infinity Edge, Bloodthirster, Boots of Swiftness</span><br>Шанс за победа срещу стандартен враг: <span class='text-green-400'>63%</span>`;
+    }
 
     function renderChampions(role = "All") {
       grid.innerHTML = "";
@@ -97,9 +111,14 @@
         .forEach(champ => {
           const img = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champ.name}.png`;
           const div = document.createElement("div");
-          div.className = "bg-gray-800 p-2 rounded-lg transform transition hover:scale-105 fade-enter-active";
+          div.className = "bg-gray-800 p-2 rounded-lg transform transition hover:scale-105 fade-enter-active cursor-pointer";
           div.innerHTML = `<img src="${img}" alt="${champ.name}" class="w-full h-20 object-cover rounded" />
                            <div class="text-sm text-center mt-1">${champ.name}</div>`;
+          div.addEventListener("click", () => {
+            aiResult.innerHTML = getFakeAiBuild(champ.name);
+            aiBuildSection.classList.remove("hidden");
+            window.scrollTo({ top: aiBuildSection.offsetTop - 60, behavior: 'smooth' });
+          });
           grid.appendChild(div);
         });
     }
