@@ -8,11 +8,47 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
-  <header class="text-center py-8 bg-gray-800 shadow-lg">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <span class="text-teal-400 text-xl font-bold">WR Builds</span>
+          <div class="hidden md:flex space-x-6 text-sm">
+            <a href="#" class="hover:text-teal-300">Начало</a>
+            <a href="#" class="hover:text-teal-300">Билдове</a>
+            <a href="#" class="hover:text-teal-300">Мета</a>
+            <a href="#" class="hover:text-teal-300">Контакт</a>
+          </div>
+        </div>
+        <!-- Hamburger -->
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="focus:outline-none">
+            <svg class="h-6 w-6 text-teal-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2 text-sm">
+      <a href="#" class="block hover:text-teal-300">Начало</a>
+      <a href="#" class="block hover:text-teal-300">Билдове</a>
+      <a href="#" class="block hover:text-teal-300">Мета</a>
+      <a href="#" class="block hover:text-teal-300">Контакт</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center py-8 bg-gray-900">
     <h1 class="text-4xl font-bold text-teal-300">Wild Rift Build Assistant</h1>
     <p class="text-gray-400 mt-2">Избери шампионите и ще ти покажем билд чрез AI</p>
   </header>
 
+  <!-- Main content -->
   <main class="max-w-6xl mx-auto p-4">
     <h2 class="text-2xl font-semibold mb-4">Избери шампионите:</h2>
     <div id="champGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
@@ -88,6 +124,12 @@
         ? `AI ще анализира следните шампиони: ${output}`
         : 'Моля, избери поне един шампион.';
     }
+
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
 
     populateGrid();
   </script>
