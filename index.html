@@ -1,119 +1,69 @@
 <!DOCTYPE html>
 <html lang="bg">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WR.GG – Wild Rift AI билдове</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Orbitron', sans-serif; }
-    .fade-enter { opacity: 0; transform: translateY(10px); }
-    .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 0.3s, transform 0.3s; }
-  </style>
-</head>
-<body class="bg-gray-950 text-white">
-
-  <!-- Navbar -->
-  <nav class="bg-gray-900 fixed top-0 w-full z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-2xl text-teal-400 font-bold">WR.GG</div>
-      <button id="menu-btn" class="text-white md:hidden">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <div id="menu" class="hidden md:flex space-x-6 text-sm">
-        <a href="#features" class="hover:text-teal-400">Функции</a>
-        <a href="#champions" class="hover:text-teal-400">Шампиони</a>
-        <a href="#tierlist" class="hover:text-teal-400">Tier List</a>
-        <a href="#contact" class="hover:text-teal-400">Контакт</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Новини - nakadarni.info</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-indigo-600">
+          nakadarni<span class="text-gray-700">.info</span>
+        </h1>
+        <nav class="space-x-4">
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Начало</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Новини</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Контакти</a>
+        </nav>
       </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-gray-900 space-y-2">
-      <a href="#features" class="block hover:text-teal-400">Функции</a>
-      <a href="#champions" class="block hover:text-teal-400">Шампиони</a>
-      <a href="#tierlist" class="block hover:text-teal-400">Tier List</a>
-      <a href="#contact" class="block hover:text-teal-400">Контакт</a>
-    </div>
-  </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="pt-28 pb-20 text-center px-4 bg-gray-950">
-    <h1 class="text-4xl sm:text-5xl font-bold text-teal-400">Wild Rift AI билдове</h1>
-    <p class="text-gray-400 mt-4 text-lg">Избери роля и шампион – ние ще направим останалото.</p>
-    <a href="#champions" class="mt-6 inline-block bg-teal-500 px-8 py-4 rounded-full text-lg font-semibold shadow hover:bg-teal-600 transition">Започни</a>
-  </section>
-
-  <!-- Filter Roles -->
-  <section class="bg-gray-900 py-6">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-xl text-teal-300 mb-4 font-semibold">Филтрирай по роля</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <button data-role="All" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">Всички</button>
-        <button data-role="ADC" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">ADC</button>
-        <button data-role="Mid" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">Mid</button>
-        <button data-role="Top" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">Top</button>
-        <button data-role="Jungle" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">Jungle</button>
-        <button data-role="Support" class="role-btn bg-gray-700 px-4 py-2 rounded hover:bg-teal-600">Support</button>
+    <!-- News article -->
+    <main class="max-w-3xl mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg">
+      <div class="mb-4">
+        <span class="text-sm text-gray-500"
+          >Автор: <span class="font-semibold">Д. Стоянов</span> | 17.06.2025, 14:47</span
+        >
       </div>
-    </div>
-  </section>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">
+        Двама души припаднаха в Capital Fort след саботаж с липсващи маслини и краставици
+      </h2>
 
-  <!-- Champions -->
-  <section id="champions" class="py-12 bg-gray-950 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div id="champGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"></div>
-    </div>
-  </section>
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Днес по обяд бизнес комплексът <strong>Capital Fort</strong> в София стана арена на необичаен инцидент, при който двама служители припаднаха вследствие на емоционален шок. Причината бе установена като
+        умишлен саботаж – липсата на две маслинки в поръчана пица и около три грама по-малко краставица в сандвич.
+      </p>
 
-  <!-- Tier List Section -->
-  <section id="tierlist" class="py-12 bg-gray-900 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-bold mb-6 text-teal-400 text-center">Tier List – Пач 6.1</h2>
-      <div id="tierListContainer" class="space-y-10"></div>
-    </div>
-  </section>
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Пострадалите, мъже на възраст между 30 и 40 години, са били сред служителите на една от фирмите в сградата. Те са изпаднали в колапс, след като забелязали разликите в поръчаната храна и потърсили обяснение от персонала, което не е било дадено в задоволителна форма.
+      </p>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-center py-10 px-4" id="contact">
-    <p class="text-gray-400">&copy; 2025 WR.GG – All Rights Reserved</p>
-    <a href="mailto:contact@wr.gg" class="text-teal-400 hover:underline">contact@wr.gg</a>
-  </footer>
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Според свидетели, напрежението е ескалирало, докато двамата служители припаднали почти едновременно, което наложи намесата на охраната и спешна медицинска помощ. Пострадалите са откарани в болница и са в стабилно състояние.
+      </p>
 
-  <!-- JS Logic -->
-  <script>
-    const champions = [
-      { name: "Ahri", role: "Mid" }, { name: "Akali", role: "Mid" }, { name: "Alistar", role: "Support" },
-      { name: "Amumu", role: "Jungle" }, { name: "Ashe", role: "ADC" }, { name: "Blitzcrank", role: "Support" },
-      { name: "Caitlyn", role: "ADC" }, { name: "Camille", role: "Top" }, { name: "Diana", role: "Jungle" },
-      { name: "DrMundo", role: "Top" }, { name: "Ezreal", role: "ADC" }, { name: "Fiora", role: "Top" },
-      { name: "Gragas", role: "Jungle" }, { name: "Irelia", role: "Top" }, { name: "Jax", role: "Top" },
-      { name: "Jhin", role: "ADC" }, { name: "Jinx", role: "ADC" }, { name: "KaiSa", role: "ADC" },
-      { name: "Katarina", role: "Mid" }, { name: "Leona", role: "Support" }, { name: "Lux", role: "Mid" },
-      { name: "Malphite", role: "Top" }, { name: "MasterYi", role: "Jungle" }, { name: "MissFortune", role: "ADC" },
-      { name: "Nami", role: "Support" }, { name: "Nasus", role: "Top" }, { name: "Rammus", role: "Jungle" },
-      { name: "Senna", role: "Support" }, { name: "Seraphine", role: "Support" }, { name: "Thresh", role: "Support" },
-      { name: "Tristana", role: "ADC" }, { name: "Varus", role: "ADC" }, { name: "Vayne", role: "ADC" },
-      { name: "Vi", role: "Jungle" }, { name: "Yasuo", role: "Mid" }, { name: "Zed", role: "Mid" }
-    ];
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Разследването на случая разкрива, че виновници за инцидента са двама души, известни с прякорите си – <strong>Петко, по-известен като „Петкича“</strong>, и <strong>Георги, известен като „Повърнята“</strong>. Според информация от МВР, двамата са извършили умишлено действие, което е довело до саботажа на храната и съответно до емоционалния срив на служителите.
+      </p>
 
-    const tierData = {
-      "S+": ["Zoe", "Ornn", "Nautilus"],
-      "S": ["Wukong", "Yasuo", "Jinx"],
-      "A": ["Camille", "Ahri", "Nami"],
-      "B": ["MasterYi", "DrMundo", "Lux"],
-      "C": ["Amumu", "Ezreal", "Leona"]
-    };
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        В момента Петко „Петкича“ и Георги „Повърнята“ са в неизвестност и се издирват от органите на реда. МВР потвърждава, че случаят се третира с висока степен на внимание, като се проверяват всички възможни връзки и мотиви.
+      </p>
 
-    const grid = document.getElementById("champGrid");
-    const buttons = document.querySelectorAll(".role-btn");
-    const tierListContainer = document.getElementById("tierListContainer");
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Говорител на МВР коментира: <em>„Това не е просто инцидент с храната. Тук става дума за умишлено предизвикване на стрес и хаос в бизнес средата, което няма да бъде толерирано.“</em>
+      </p>
 
-    function renderChampions(role = "All") {
-      grid.innerHTML = "";
-      champions.filter(champ => role === "All" || champ.role === role)
-        .forEach(champ => {
-          const img = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champ.name}.png`;
-          const div = document.createElement("div");
-          div.className = "bg-gray-800 p-2 rounded-lg transform
+      <p class="text-lg text-gray-700 leading-relaxed mb-4">
+        Служителите на Capital Fort и клиентите се надяват бързо да бъде възстановен нормалният ритъм на работа и да няма повече подобни случаи. Отговорните за ситуацията лица следва да понесат последствията според закона.
+      </p>
+
+      <p class="text-sm text-gray-500 mt-6 italic">
+        Следете <strong>nakadarni.info</strong> за всички новости около този случай.
+      </p>
+    </main>
+  </body>
+</html>
