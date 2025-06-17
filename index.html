@@ -3,70 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WR.GG – Wild Rift билдове с AI</title>
+  <title>WR.GG – AI билдове за Wild Rift</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style> body { font-family: 'Orbitron', sans-serif; } </style>
 </head>
-<body class="bg-gray-950 text-white">
+<body class="bg-gray-950 text-white scroll-smooth">
 
   <!-- Navbar -->
-  <nav class="bg-gray-900 p-4 flex justify-between items-center">
-    <span class="text-xl text-teal-400 font-bold">WR.GG</span>
-    <button id="menu-btn" class="text-teal-400 md:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-        viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    <div id="mobile-menu" class="hidden absolute top-14 left-0 w-full bg-gray-900 md:flex md:static md:w-auto md:space-x-6 md:items-center text-sm p-4 md:p-0 flex-col md:flex-row space-y-2 md:space-y-0">
-      <a href="#" class="hover:text-teal-300">Начало</a>
-      <a href="#features" class="hover:text-teal-300">AI Функции</a>
-      <a href="#champions" class="hover:text-teal-300">Шампиони</a>
-      <a href="#contact" class="hover:text-teal-300">Контакт</a>
+  <nav class="bg-gray-900 fixed top-0 w-full z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl text-teal-400 font-bold">WR.GG</div>
+      <button id="menu-btn" class="text-white md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div id="menu" class="hidden md:flex space-x-6 text-sm items-center">
+        <a href="#features" class="hover:text-teal-400">Функции</a>
+        <a href="#champions" class="hover:text-teal-400">Шампиони</a>
+        <a href="#contact" class="hover:text-teal-400">Контакт</a>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-900 px-4 py-4 space-y-2">
+      <a href="#features" class="block hover:text-teal-400">Функции</a>
+      <a href="#champions" class="block hover:text-teal-400">Шампиони</a>
+      <a href="#contact" class="block hover:text-teal-400">Контакт</a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="text-center py-16 px-4">
-    <h1 class="text-4xl font-bold text-teal-400">AI билдове за Wild Rift</h1>
-    <p class="text-gray-400 mt-4 text-base">Избери шампиони и получи AI билд с един клик.</p>
+  <section class="pt-28 pb-16 text-center px-4 bg-gray-950">
+    <h1 class="text-4xl sm:text-5xl font-bold text-teal-400 leading-tight">Wild Rift билдове с изкуствен интелект</h1>
+    <p class="text-gray-400 mt-4 text-lg">Избери шампион. Ние ще направим всичко останало.</p>
     <a href="#champions"
-      class="mt-6 inline-block bg-teal-500 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-teal-600 transition">
+      class="mt-6 inline-block bg-teal-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-teal-600 transition">
       Започни сега
     </a>
   </section>
 
   <!-- Features -->
-  <section id="features" class="bg-gray-900 px-4 py-12">
-    <h2 class="text-2xl font-bold text-center text-teal-300 mb-8">Какво предлагаме</h2>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">
-        <h3 class="text-lg text-teal-400 font-bold mb-2">AI билд генерация</h3>
-        <p class="text-gray-400 text-sm">Автоматично генериране на билд според враговете и патча.</p>
-      </div>
-      <div class="bg-gray-800 p-4 rounded-lg shadow text-center">
-        <h3 class="text-lg text-teal-400 font-bold mb-2">Мета анализ</h3>
-        <p class="text-gray-400 text-sm">Проследяване на мета шампиони и победни билдове.</p>
+  <section id="features" class="bg-gray-900 py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl text-teal-300 font-bold mb-10">Какво прави WR.GG различен</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-bold text-teal-400 mb-2">AI билдове</h3>
+          <p class="text-gray-400 text-sm">Генерирани според метата, враговете и последния патч.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-bold text-teal-400 mb-2">Мобилна оптимизация</h3>
+          <p class="text-gray-400 text-sm">Изградено специално за Wild Rift играчи на мобилни устройства.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-bold text-teal-400 mb-2">Лесен интерфейс</h3>
+          <p class="text-gray-400 text-sm">Избери шампион, виж билд. Без излишно търсене.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Champions -->
-  <section id="champions" class="px-4 py-12">
-    <h2 class="text-2xl text-center font-bold text-teal-300 mb-6">WR Шампиони</h2>
-    <div id="champGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+  <!-- Champions Grid -->
+  <section id="champions" class="py-16 px-4 bg-gray-950">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl text-teal-300 font-bold mb-10">Шампиони</h2>
+      <div id="champGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4"></div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="bg-gray-900 text-center text-gray-400 text-sm py-6 mt-10">
-    <p>&copy; 2025 WR.GG. Всички права запазени.</p>
-    <p>Свържи се: <a href="mailto:contact@wr.gg" class="text-teal-400 hover:underline">contact@wr.gg</a></p>
+  <footer id="contact" class="bg-gray-900 text-center py-10 px-4">
+    <p class="text-gray-400">&copy; 2025 WR.GG – All Rights Reserved</p>
+    <p class="text-teal-400 mt-2"><a href="mailto:contact@wr.gg" class="hover:underline">contact@wr.gg</a></p>
   </footer>
 
   <!-- Scripts -->
   <script>
+    // Toggle mobile menu
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+
+    // Load champions
     const champions = [
       "Ahri", "Akali", "Alistar", "Amumu", "Annie", "Aphelios", "Ashe", "AurelionSol",
       "Blitzcrank", "Caitlyn", "Camille", "Darius", "Diana", "DrMundo", "Draven", "Ekko",
@@ -92,10 +111,7 @@
       `;
       champGrid.appendChild(item);
     });
-
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
   </script>
+
 </body>
 </html>
