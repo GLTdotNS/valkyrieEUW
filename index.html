@@ -26,12 +26,14 @@
       <div id="menu" class="hidden md:flex space-x-6 text-sm">
         <a href="#features" class="hover:text-teal-400">Функции</a>
         <a href="#champions" class="hover:text-teal-400">Шампиони</a>
+        <a href="#tiers" class="hover:text-teal-400">Tier List</a>
         <a href="#contact" class="hover:text-teal-400">Контакт</a>
       </div>
     </div>
     <div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-gray-900 space-y-2">
       <a href="#features" class="block hover:text-teal-400">Функции</a>
       <a href="#champions" class="block hover:text-teal-400">Шампиони</a>
+      <a href="#tiers" class="block hover:text-teal-400">Tier List</a>
       <a href="#contact" class="block hover:text-teal-400">Контакт</a>
     </div>
   </nav>
@@ -65,11 +67,32 @@
     </div>
   </section>
 
-  <!-- AI Build Output -->
-  <section id="ai-build" class="py-12 bg-gray-900 px-4 hidden">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl text-teal-300 mb-6 font-semibold">AI билд & шансове за победа</h2>
-      <p id="ai-result" class="text-gray-300 text-lg"></p>
+  <!-- Tier List -->
+  <section id="tiers" class="py-12 bg-gray-900 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl text-center text-teal-400 font-bold mb-8">Tier Списък (Patch 6.1)</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl text-yellow-400 font-semibold">S+ Tier</h3>
+          <p class="text-gray-300">Zoe, Ornn, Nautilus, Lulu, Miss Fortune, Rammus, Ahri, Warwick, Orianna, Syndra, Maokai, Blitzcrank, Heimerdinger, Singed, Soraka, Nami, Camille, Gwen, Ekko, Swain, Leona, Poppy, Ezreal, Xayah, Sivir, Lee Sin, Volibear, Nasus, Fiora, Aurelion Sol, Annie, Aatrox, Jarvan IV, Lillia, Wukong, Riven, Morgana, Zed, Nunu, Viktor, Vi, Olaf, Shen, Garen, Xin Zhao, Kassadin, Varus, Viego, Ryze, Seraphine</p>
+        </div>
+        <div>
+          <h3 class="text-2xl text-yellow-300 font-semibold">S Tier</h3>
+          <p class="text-gray-300">Teemo, Ashe, Yuumi, Twisted Fate, Zyra, Fizz, Kennen, Rakan, Kindred, Yone, Master Yi, Karma, Vex, Yasuo, Kayle, Pantheon, Akali, Ziggs, Zeri, Rengar, Brand, Sett, Diana, Kha’Zix, Jinx, Galio, Lissandra, Caitlyn, Kai’Sa, Graves, Evelynn, Kayn, Lux, Veigar, Lucian, Vayne, Irelia</p>
+        </div>
+        <div>
+          <h3 class="text-2xl text-green-400 font-semibold">A Tier</h3>
+          <p class="text-gray-300">Pantheon, Swain, Pyke, Brand, Senna, Twitch, Vladimir, Darius, Draven, Gragas, Jayce, Volibear, Tryndamere, Morgana, Urgot, Sion, Amumu, Camille, Irelia, Lucian, Seraphine, Malphite, Jax</p>
+        </div>
+        <div>
+          <h3 class="text-2xl text-blue-400 font-semibold">B Tier</h3>
+          <p class="text-gray-300">Kalista, Nilah, Maokai</p>
+        </div>
+        <div>
+          <h3 class="text-2xl text-gray-400 font-semibold">C Tier</h3>
+          <p class="text-gray-300">Ниска ефективност в метата, избягвай за ранк.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -98,12 +121,6 @@
 
     const grid = document.getElementById("champGrid");
     const buttons = document.querySelectorAll(".role-btn");
-    const aiBuildSection = document.getElementById("ai-build");
-    const aiResult = document.getElementById("ai-result");
-
-    function getFakeAiBuild(champName) {
-      return `Избран шампион: <strong>${champName}</strong><br>Препоръчан билд: <span class='text-teal-400'>Infinity Edge, Bloodthirster, Boots of Swiftness</span><br>Шанс за победа срещу стандартен враг: <span class='text-green-400'>63%</span>`;
-    }
 
     function renderChampions(role = "All") {
       grid.innerHTML = "";
@@ -111,14 +128,9 @@
         .forEach(champ => {
           const img = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champ.name}.png`;
           const div = document.createElement("div");
-          div.className = "bg-gray-800 p-2 rounded-lg transform transition hover:scale-105 fade-enter-active cursor-pointer";
+          div.className = "bg-gray-800 p-2 rounded-lg transform transition hover:scale-105 fade-enter-active";
           div.innerHTML = `<img src="${img}" alt="${champ.name}" class="w-full h-20 object-cover rounded" />
                            <div class="text-sm text-center mt-1">${champ.name}</div>`;
-          div.addEventListener("click", () => {
-            aiResult.innerHTML = getFakeAiBuild(champ.name);
-            aiBuildSection.classList.remove("hidden");
-            window.scrollTo({ top: aiBuildSection.offsetTop - 60, behavior: 'smooth' });
-          });
           grid.appendChild(div);
         });
     }
