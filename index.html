@@ -26,14 +26,14 @@
       <div id="menu" class="hidden md:flex space-x-6 text-sm">
         <a href="#features" class="hover:text-teal-400">Функции</a>
         <a href="#champions" class="hover:text-teal-400">Шампиони</a>
-        <a href="#tiers" class="hover:text-teal-400">Tier List</a>
+        <a href="#tierlist" class="hover:text-teal-400">Tier List</a>
         <a href="#contact" class="hover:text-teal-400">Контакт</a>
       </div>
     </div>
     <div id="mobile-menu" class="md:hidden hidden px-4 py-4 bg-gray-900 space-y-2">
       <a href="#features" class="block hover:text-teal-400">Функции</a>
       <a href="#champions" class="block hover:text-teal-400">Шампиони</a>
-      <a href="#tiers" class="block hover:text-teal-400">Tier List</a>
+      <a href="#tierlist" class="block hover:text-teal-400">Tier List</a>
       <a href="#contact" class="block hover:text-teal-400">Контакт</a>
     </div>
   </nav>
@@ -67,32 +67,11 @@
     </div>
   </section>
 
-  <!-- Tier List -->
-  <section id="tiers" class="py-12 bg-gray-900 px-4">
+  <!-- Tier List Section -->
+  <section id="tierlist" class="py-12 bg-gray-900 px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl text-center text-teal-400 font-bold mb-8">Tier Списък (Patch 6.1)</h2>
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-2xl text-yellow-400 font-semibold">S+ Tier</h3>
-          <p class="text-gray-300">Zoe, Ornn, Nautilus, Lulu, Miss Fortune, Rammus, Ahri, Warwick, Orianna, Syndra, Maokai, Blitzcrank, Heimerdinger, Singed, Soraka, Nami, Camille, Gwen, Ekko, Swain, Leona, Poppy, Ezreal, Xayah, Sivir, Lee Sin, Volibear, Nasus, Fiora, Aurelion Sol, Annie, Aatrox, Jarvan IV, Lillia, Wukong, Riven, Morgana, Zed, Nunu, Viktor, Vi, Olaf, Shen, Garen, Xin Zhao, Kassadin, Varus, Viego, Ryze, Seraphine</p>
-        </div>
-        <div>
-          <h3 class="text-2xl text-yellow-300 font-semibold">S Tier</h3>
-          <p class="text-gray-300">Teemo, Ashe, Yuumi, Twisted Fate, Zyra, Fizz, Kennen, Rakan, Kindred, Yone, Master Yi, Karma, Vex, Yasuo, Kayle, Pantheon, Akali, Ziggs, Zeri, Rengar, Brand, Sett, Diana, Kha’Zix, Jinx, Galio, Lissandra, Caitlyn, Kai’Sa, Graves, Evelynn, Kayn, Lux, Veigar, Lucian, Vayne, Irelia</p>
-        </div>
-        <div>
-          <h3 class="text-2xl text-green-400 font-semibold">A Tier</h3>
-          <p class="text-gray-300">Pantheon, Swain, Pyke, Brand, Senna, Twitch, Vladimir, Darius, Draven, Gragas, Jayce, Volibear, Tryndamere, Morgana, Urgot, Sion, Amumu, Camille, Irelia, Lucian, Seraphine, Malphite, Jax</p>
-        </div>
-        <div>
-          <h3 class="text-2xl text-blue-400 font-semibold">B Tier</h3>
-          <p class="text-gray-300">Kalista, Nilah, Maokai</p>
-        </div>
-        <div>
-          <h3 class="text-2xl text-gray-400 font-semibold">C Tier</h3>
-          <p class="text-gray-300">Ниска ефективност в метата, избягвай за ранк.</p>
-        </div>
-      </div>
+      <h2 class="text-2xl font-bold mb-6 text-teal-400 text-center">Tier List – Пач 6.1</h2>
+      <div id="tierListContainer" class="space-y-10"></div>
     </div>
   </section>
 
@@ -119,8 +98,17 @@
       { name: "Vi", role: "Jungle" }, { name: "Yasuo", role: "Mid" }, { name: "Zed", role: "Mid" }
     ];
 
+    const tierData = {
+      "S+": ["Zoe", "Ornn", "Nautilus"],
+      "S": ["Wukong", "Yasuo", "Jinx"],
+      "A": ["Camille", "Ahri", "Nami"],
+      "B": ["MasterYi", "DrMundo", "Lux"],
+      "C": ["Amumu", "Ezreal", "Leona"]
+    };
+
     const grid = document.getElementById("champGrid");
     const buttons = document.querySelectorAll(".role-btn");
+    const tierListContainer = document.getElementById("tierListContainer");
 
     function renderChampions(role = "All") {
       grid.innerHTML = "";
@@ -128,27 +116,4 @@
         .forEach(champ => {
           const img = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champ.name}.png`;
           const div = document.createElement("div");
-          div.className = "bg-gray-800 p-2 rounded-lg transform transition hover:scale-105 fade-enter-active";
-          div.innerHTML = `<img src="${img}" alt="${champ.name}" class="w-full h-20 object-cover rounded" />
-                           <div class="text-sm text-center mt-1">${champ.name}</div>`;
-          grid.appendChild(div);
-        });
-    }
-
-    renderChampions();
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("bg-teal-600"));
-        btn.classList.add("bg-teal-600");
-        renderChampions(btn.dataset.role);
-      });
-    });
-
-    // Mobile Menu Toggle
-    document.getElementById("menu-btn").addEventListener("click", () => {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
-    });
-  </script>
-</body>
-</html>
+          div.className = "bg-gray-800 p-2 rounded-lg transform
