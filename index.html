@@ -33,7 +33,7 @@
   <!-- Navbar -->
   <header class="bg-white shadow-lg fixed top-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-3xl font-display text-primary tracking-widest">Le Petite Gourmet</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="logo" class="h-10"/>
       <button id="burger" class="md:hidden focus:outline-none">
         <svg class="h-6 w-6 text-dark" fill="none" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -55,128 +55,86 @@
     </div>
   </header>
 
-  <!-- Spacer -->
-  <div class="h-20"></div>
-
-  <!-- Gallery -->
-  <section class="max-w-6xl mx-auto px-6 mb-12 grid grid-cols-2 gap-4">
-    <img src="https://cdn.pixabay.com/photo/2020/05/14/11/03/pizza-5162287_1280.jpg" alt="Гурме пица" class="w-full h-48 object-cover rounded-lg shadow-md"/>
-    <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" alt="Гурме пица" class="w-full h-48 object-cover rounded-lg shadow-md"/>
-    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hawaiian-pizza-1238259_1280.jpg" alt="Гурме пица" class="w-full h-48 object-cover rounded-lg shadow-md"/>
-    <img src="https://cdn.pixabay.com/photo/2017/01/23/15/01/pizza-2000593_1280.jpg" alt="Гурме пица" class="w-full h-48 object-cover rounded-lg shadow-md"/>
-  </section>
+  <!-- Cover Photo -->
+  <div class="h-64 bg-cover bg-center mt-16" style="background-image: url('https://images.freepik.com/free-photo/luxury-restaurant-interior_23-2148933615.jpg');"></div>
 
   <!-- Menu -->
-  <main class="max-w-4xl mx-auto px-6 py-10">
+  <main class="max-w-4xl mx-auto px-6 py-12">
     <h2 class="text-4xl font-display text-center mb-12">Седмично Гурме Меню</h2>
     <div class="space-y-14">
+      <!-- Ястия -->
       <!-- 1 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
           <div>
             <h3 class="text-2xl font-display text-primary">Гурме Пица с Трюфел и Буфало Моцарела</h3>
-            <p class="text-gray-600 italic">Тънко, ферментирало тесто с трюфелова паста и моцарела от биволско мляко</p>
+            <p class="text-gray-600 italic">Тънко ферментирало тесто, трюфелова паста, прясна моцарела от биволско мляко</p>
           </div>
           <span class="text-xl font-semibold text-primary">95 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
+      <!-- Повтарящи се елементи за другите ястия -->
       <!-- 2 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Деконструирана Мусака</h3>
-            <p class="text-gray-600 italic">Телешки фарш, картофено пюре и доматен редукцион</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">82 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Деконструирана Мусака</h3><p class="text-gray-600 italic">Телешки фарш, пюре и доматен редукцион</p></div><span class="text-xl font-semibold text-primary">82 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 3 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Редукция от Бобена Есенция</h3>
-            <p class="text-gray-600 italic">Кремообразен боб, пушена сланина и чубрица</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">75 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Редукция от Бобена Есенция</h3><p class="text-gray-600 italic">Кремообразен боб, пушена сланина и чубрица</p></div><span class="text-xl font-semibold text-primary">75 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 4 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Минималистично Кюфте на Въглища</h3>
-            <p class="text-gray-600 italic">Свинско‑телешки протеин, дюксел от гъби и балсамик</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">78 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Минималистично Кюфте на Въглища</h3><p class="text-gray-600 italic">Свинско‑телешки протеин, дюксел от гъби и балсамик</p></div><span class="text-xl font-semibold text-primary">78 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 5 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Баница с Мус от Овче Сирене</h3>
-            <p class="text-gray-600 italic">Фино фило, трюфел и серум от кисело мляко</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">72 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Баница с Мус от Овче Сирене</h3><p class="text-gray-600 italic">Фино фило, трюфел и серум от кисело мляко</p></div><span class="text-xl font-semibold text-primary">72 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 6 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Веган Таратор на Пяна</h3>
-            <p class="text-gray-600 italic">Краставица, ядково мляко и микрозелени</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">68 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Веган Таратор на Пяна</h3><p class="text-gray-600 italic">Краставица, ядково мляко и микрозелени</p></div><span class="text-xl font-semibold text-primary">68 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 7 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Оризово Ризото с Лешников Прах</h3>
-            <p class="text-gray-600 italic">Ориз алденте с лешник и карамелизирана амброзия</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">85 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Ризото с Лешников Прах</h3><p class="text-gray-600 italic">Алденте ориз, лешник и карамелизирана амброзия</p></div><span class="text-xl font-semibold text-primary">85 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 8 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Флуидна Интерпретация на Пълнени Чушки</h3>
-            <p class="text-gray-600 italic">Су-вид чушки с оризов мус и зеленчуков бульон</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">80 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Пълнени Чушки – Флуидна Интерпретация</h3><p class="text-gray-600 italic">Су-вид чушки с оризов мус и бульон</p></div><span class="text-xl font-semibold text-primary">80 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 9 -->
       <div class="border-b pb-6" data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Салата „Шопска“ на Три Текстури</h3>
-            <p class="text-gray-600 italic">Домашен гел от домат, маринована краставица и фета чипс</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">70 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Салата „Шопска“ на Три Текстури</h3><p class="text-gray-600 italic">Домашен гел от домат, краставица, фета чипс</p></div><span class="text-xl font-semibold text-primary">70 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
       <!-- 10 -->
       <div data-animate>
         <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Тиквеник с Канелена Редукция</h3>
-            <p class="text-gray-600 italic">Карамелизиран тиквеник с портокалов дресинг</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">65 лв.</span>
+          <div><h3 class="text-2xl font-display text-primary">Тиквеник с Канелена Редукция</h3><p class="text-gray-600 italic">Карамелизиран тиквеник, портокалов дресинг</p></div><span class="text-xl font-semibold text-primary">65 лв.</span>
         </div>
         <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
       </div>
@@ -186,23 +144,21 @@
   <!-- Footer -->
   <footer class="bg-dark text-light py-10 mt-20">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-sm">&copy; 2025 Le Petite Gourmet – Изкуство във всеки вкус.</p>
-      <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="#" class="text-sm hover:underline">Условия</a>
-        <a href="#" class="text-sm hover:underline">Контакт</a>
-      </div>
+      <p class="text-sm">&copy; 2025 Le Petite Gourmet – Изкуство във всеки вкус.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-sm hover:underline">Условия</a><a href="#" class="text-sm hover:underline">Контакт</a></div>
     </div>
   </footer>
 
-  <!-- Скриптове -->
+  <!-- Scripts -->
   <script>
     document.getElementById('burger').onclick = () => {
       document.getElementById('mobile').classList.toggle('hidden');
     };
-    const obs = new IntersectionObserver((es) => {
-      es.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
     }, {threshold:0.2});
     document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
   </script>
+
 </body>
 </html>
