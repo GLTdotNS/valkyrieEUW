@@ -20,14 +20,25 @@
             }
           }
         }
-      }
+      };
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+      [data-animate].visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body class="bg-light text-dark font-body">
 
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <header class="bg-white shadow-xl sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <h1 class="text-3xl font-display text-primary tracking-widest">Le Petite Gourmet</h1>
         <nav class="hidden md:flex space-x-6 uppercase text-sm font-semibold text-gray-600">
@@ -39,75 +50,83 @@
       </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main class="max-w-4xl mx-auto px-6 py-16">
       <h2 class="text-4xl font-display text-center mb-12 text-dark">Седмично Меню</h2>
 
-      <div class="grid gap-12">
-        <!-- Gourmet Items -->
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Гурме Пица с Трюфел и Буфало Моцарела</h3>
-          <p class="text-gray-600 italic">Ръчно приготвено тесто с бавно ферментирала закваска, трюфелова паста, пресни листа босилек и свежа моцарела от мляко на воден бивол</p>
+      <div class="grid gap-14">
+        <!-- Item -->
+        <div class="border-b pb-6" data-animate>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-2xl font-display text-primary">Гурме Пица с Трюфел и Буфало Моцарела</h3>
+              <p class="text-gray-600 italic">Ръчно приготвено тесто с трюфелова паста и свежа моцарела</p>
+            </div>
+            <span class="text-xl font-semibold text-primary">89 лв.</span>
+          </div>
+          <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
         </div>
 
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Деконструирана мусака върху пюре от златен картоф</h3>
-          <p class="text-gray-600 italic">Реинтерпретация на класиката чрез слоеве от бавно готвен телешки фарш, емулсия от домат и етерични нотки на индийско орехче</p>
+        <div class="border-b pb-6" data-animate>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-2xl font-display text-primary">Деконструирана Мусака</h3>
+              <p class="text-gray-600 italic">Слоеве от телешки фарш и крем от картоф върху доматена редукция</p>
+            </div>
+            <span class="text-xl font-semibold text-primary">76 лв.</span>
+          </div>
+          <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
         </div>
 
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Редукция от бобена есенция с пенка от пушена сланина</h3>
-          <p class="text-gray-600 italic">Фино балансирана текстура от кремообразен боб мунг, леко аерирана животинска мазнина и фин прах от чубрица</p>
+        <div class="border-b pb-6" data-animate>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-2xl font-display text-primary">Постмодерна Баница с мус от овче сирене</h3>
+              <p class="text-gray-600 italic">Фино фило с трюфелова нотка и редукция от лук</p>
+            </div>
+            <span class="text-xl font-semibold text-primary">68 лв.</span>
+          </div>
+          <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
         </div>
 
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Минималистично кюфте на въглища с мицеларна хрупкавина</h3>
-          <p class="text-gray-600 italic">Реструктуриран свинско-телешки протеин върху дюксел от гъби и пикантен редукционен балсамик</p>
+        <div class="border-b pb-6" data-animate>
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-2xl font-display text-primary">Оризово ризото с лешников прах</h3>
+              <p class="text-gray-600 italic">Фюжън от лешник и карамелизирана амброзия</p>
+            </div>
+            <span class="text-xl font-semibold text-primary">84 лв.</span>
+          </div>
+          <button class="mt-4 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
         </div>
-
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Постмодерна баница с мус от овче сирене и карамелизиран лук</h3>
-          <p class="text-gray-600 italic">Фило листове с текстура на дантела, гарнирани с трюфелова нотка и серум от кисело мляко</p>
-        </div>
-
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Веган таратор на пяна с микрозелени и ядкова есенция</h3>
-          <p class="text-gray-600 italic">Еспума от краставица, ядково мляко и копърова инфузия, поднесена охладено</p>
-        </div>
-
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Оризово ризото с въздушен лешников прах и прегоряло масло</h3>
-          <p class="text-gray-600 italic">Ал денте оризови зърна с кремообразен фюжън от лешник, градински чай и карамелизирана амброзия</p>
-        </div>
-
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Пълнени чушки - флуидна интерпретация</h3>
-          <p class="text-gray-600 italic">Су-вид чушки, пълнени със спумантен оризов мус и редуциран зеленчуков бульон</p>
-        </div>
-
-        <div class="border-b pb-6">
-          <h3 class="text-2xl font-display text-primary">Салата "Шопска" на три текстури</h3>
-          <p class="text-gray-600 italic">Гел от домат, маринована краставица и солена чипсова фета в равновесие</p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-display text-primary">Тиквеник със захарна кристализация и киселинен баланс</h3>
-          <p class="text-gray-600 italic">Гарниран с редукция от канела и сушен портокал</p>
-        </div>
+        
+        <!-- Можеш да добавиш още, като дублираш блока -->
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-8 mt-20">
+    <footer class="bg-dark text-light py-10 mt-20">
       <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-sm">&copy; 2025 Le Petite Gourmet. Изкуство във всеки вкус.</p>
+        <p class="text-sm">&copy; 2025 Le Petite Gourmet – Изкуство във всеки вкус.</p>
         <div class="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:underline">Резервации</a>
           <a href="#" class="text-sm hover:underline">Условия</a>
           <a href="#" class="text-sm hover:underline">Контакт</a>
         </div>
       </div>
     </footer>
+
+    <!-- Анимации при скрол -->
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    </script>
 
   </body>
 </html>
