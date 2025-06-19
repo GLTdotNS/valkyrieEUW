@@ -1,186 +1,82 @@
 <!DOCTYPE html>
-<html lang="bg">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Le Petite Gourmet | Седмично Гурме Меню</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['"Open Sans"', 'sans-serif']
-          },
-          colors: {
-            primary: '#B68D40',
-            dark: '#1B1B1B',
-            light: '#FAF7F2'
-          }
-        }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wild Rift AI Build Assistant - Ahri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
       }
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    [data-animate]{opacity:0;transform:translateY(20px);transition:all .5s ease-out;}
-    [data-animate].visible{opacity:1;transform:translateY(0);}
-  </style>
-</head>
-<body class="bg-light text-dark font-body">
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen flex flex-col items-center px-4 py-6">
 
-  <!-- Navbar -->
-  <header class="bg-white shadow-lg fixed top-0 w-full z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA7DoLERedBpt65-OZdEK03H8jAMUK3UNBfQ&s" alt="logo" class="h-8"/>
-      <button id="burger" class="md:hidden focus:outline-none">
-        <svg class="h-6 w-6 text-dark" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-      <nav id="menu" class="hidden md:flex space-x-6 uppercase text-sm font-semibold text-gray-600">
-        <a href="#" class="hover:text-primary transition">Начало</a>
-        <a href="#" class="hover:text-primary transition">Меню</a>
-        <a href="#" class="hover:text-primary transition">Резервация</a>
-        <a href="#" class="hover:text-primary transition">Контакт</a>
-      </nav>
-    </div>
-    <div id="mobile" class="md:hidden hidden bg-white px-6 pb-4">
-      <a href="#" class="block py-2">Начало</a>
-      <a href="#" class="block py-2">Меню</a>
-      <a href="#" class="block py-2">Резервация</a>
-      <a href="#" class="block py-2">Контакт</a>
-    </div>
-  </header>
+    <header class="w-full max-w-2xl mb-6">
+      <h1 class="text-3xl font-bold text-center">⚔️ Wild Rift AI Build Assistant</h1>
+      <p class="text-center text-gray-400 mt-1">Patch 6.1 • Role: Midlane • Champion: Ahri</p>
+    </header>
 
-  <!-- Cover -->
-  <div class="h-48 bg-cover bg-center mt-14 rounded-b-lg shadow-md" style="background-image: url('https://danybon.com/wp-content/uploads/2025/06/food-2851910_1280.jpg');"></div>  <!-- източник: Veranda :contentReference[oaicite:2]{index=2} -->
+    <main class="w-full max-w-2xl bg-gray-900 rounded-2xl p-6 shadow-xl">
 
-  <!-- Main Menu -->
-  <main class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-display text-center mb-10">Седмично Гурме Меню</h2>
-    <div class="space-y-10">
-      <!-- 10 ястия -->
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Гурме Пица с Трюфел и Буфало Моцарела</h3>
-            <p class="text-gray-600 italic text-sm">Тънко ферментирало тесто, трюфелова паста, прясна моцарела от биволско мляко</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">95 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Деконструирана Мусака</h3>
-            <p class="text-gray-600 italic text-sm">Телешки фарш, картофено пюре и доматен редукцион</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">82 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Редукция от Бобена Есенция</h3>
-            <p class="text-gray-600 italic text-sm">Кремообразен боб, пушена сланина и чубрица</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">75 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Минималистично Кюфте на Въглища</h3>
-            <p class="text-gray-600 italic text-sm">Свинско‑телешки протеин, дюксел от гъби и балсамик</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">78 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Баница с Мус от Овче Сирене</h3>
-            <p class="text-gray-600 italic text-sm">Фино фило, трюфел и серум от кисело мляко</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">72 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Веган Таратор на Пяна</h3>
-            <p class="text-gray-600 italic text-sm">Краставица, ядково мляко и микрозелени</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">68 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Ризото с Лешников Прах</h3>
-            <p class="text-gray-600 italic text-sm">Алденте ориз, лешник и карамелизирана амброзия</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">85 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Флуидна Интерпретация на Пълнени Чушки</h3>
-            <p class="text-gray-600 italic text-sm">Су-вид чушки с оризов мус и бульон</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">80 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div class="border-b pb-6" data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Салата „Шопска“ на Три Текстури</h3>
-            <p class="text-gray-600 italic text-sm">Домашен гел от домат, краставица, фета чипс</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">70 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-      <div data-animate>
-        <div class="flex justify-between items-start">
-          <div>
-            <h3 class="text-2xl font-display text-primary">Тиквеник с Канелена Редукция</h3>
-            <p class="text-gray-600 italic text-sm">Карамелизиран тиквеник, портокалов дресинг</p>
-          </div>
-          <span class="text-xl font-semibold text-primary">65 лв.</span>
-        </div>
-        <button class="mt-3 px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition rounded-full text-sm font-semibold">Поръчай</button>
-      </div>
-    </div>
-  </main>
+      <section class="mb-6 text-center">
+        <img src="https://cdn.wildrift.gg/champion/Ahri.png" alt="Ahri" class="w-28 h-28 mx-auto rounded-full border-4 border-pink-400" />
+        <h2 class="text-2xl font-semibold mt-2">Ahri – The Nine-Tailed Fox</h2>
+        <p class="text-gray-400 text-sm">Magic Assassin • Midlane</p>
+      </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-light py-8 mt-16">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-sm">&copy; 2025 Le Petite Gourmet – Изкуство във всеки вкус.</p>
-      <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="#" class="text-sm hover:underline">Условия</a>
-        <a href="#" class="text-sm hover:underline">Контакт</a>
-      </div>
-    </div>
-  </footer>
+      <section class="mb-6">
+        <h2 class="text-xl font-semibold mb-3">🔮 Recommended Build</h2>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="flex flex-col items-center">
+            <img src="https://cdn.wildrift.gg/item/Ludens_Echo.png" class="w-12 h-12 mb-1" />
+            <span class="text-xs text-center">Luden's Echo</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://cdn.wildrift.gg/item/Rabadons_Deathcap.png" class="w-12 h-12 mb-1" />
+            <span class="text-xs text-center">Rabadon's Cap</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://cdn.wildrift.gg/item/Infinity_Orb.png" class="w-12 h-12 mb-1" />
+            <span class="text-xs text-center">Infinity Orb</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://cdn.wildrift.gg/item/Stasis_Enchant.png" class="w-12 h-12 mb-1" />
+            <span class="text-xs text-center">Stasis Enchant</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://cdn.wildrift.gg/item/Awakened_Soulstealer.png" class="w-12 h-12 mb-1" />
+            <span class="text-xs text-center">Soulstealer</span>
+          </div>
+        </div>
+      </section>
 
-  <!-- Скриптове -->
-  <script>
-    document.getElementById('burger').onclick = () => document.getElementById('mobile').classList.toggle('hidden');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.2 });
-    document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
-  </script>
-</body>
+      <section class="mb-6">
+        <h2 class="text-xl font-semibold mb-3">🤖 AI Patch 6.1 Meta Analysis</h2>
+        <div class="bg-gray-800 rounded-xl p-4 text-sm text-gray-200">
+          <p class="mb-2">
+            <strong>Patch 6.1 Notes:</strong> Ahri's passive healing was reduced by 15% in early game, but her Charm duration was increased by 0.25s at all ranks.
+          </p>
+          <p class="mt-2">
+            <strong>AI Insight:</strong> Ahri remains a powerful midlane pick in 6.1. While her sustain took a hit, the longer Charm window allows better burst combos. She synergizes exceptionally well with Luden's Echo for early poke and Rabadon's Deathcap to scale hard. Consider Stasis Enchant vs. assassins like Zed or Akali.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">🎯 Suggested Counters</h2>
+        <div class="flex flex-wrap gap-3">
+          <div class="bg-gray-800 rounded-xl px-4 py-2 text-sm">Good vs: Ziggs, Lux, Veigar</div>
+          <div class="bg-gray-800 rounded-xl px-4 py-2 text-sm">Struggles vs: Diana, Fizz, Kassadin</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-8 text-xs text-gray-500 text-center">
+      &copy; 2025 WildRiftAI • Data simulated from Patch 6.1
+    </footer>
+  </body>
 </html>
