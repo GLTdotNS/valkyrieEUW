@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>Wild Rift AI Build Assistant (LoL CDN)</title>
+  <title>Wild Rift AI Build + Runes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
@@ -14,11 +14,10 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen px-4 py-6">
   <div class="max-w-md mx-auto">
-    <!-- Header -->
-    <h1 class="text-3xl font-bold text-center mb-1">⚔️ Wild Rift AI Build Assistant</h1>
-    <p class="text-center text-sm text-gray-400 mb-6">Patch 6.1 • Ahri • Midlane</p>
+    <h1 class="text-3xl font-bold text-center mb-2">⚔️ Wild Rift AI Build Assistant</h1>
+    <p class="text-center text-sm text-gray-400 mb-5">Patch 6.1 • Ahri • Midlane</p>
 
-    <!-- Champion Image -->
+    <!-- Champion -->
     <div class="flex justify-center mb-8">
       <img
         src="https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/Ahri.png"
@@ -27,9 +26,9 @@
       />
     </div>
 
-    <!-- Recommended Build -->
+    <!-- Build Items -->
     <section>
-      <h2 class="text-xl font-semibold mb-4">🔮 Recommended Build</h2>
+      <h2 class="text-xl font-semibold mb-4">🔮 Recommended Build (6 Items)</h2>
       <div class="grid grid-cols-3 gap-5">
         <div class="flex flex-col items-center">
           <img
@@ -76,6 +75,53 @@
           />
           <p class="text-xs mt-2 text-center">Lich Bane</p>
         </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/3027.png"
+            alt="Morellonomicon"
+            class="w-14 h-14"
+            title="Morellonomicon"
+          />
+          <p class="text-xs mt-2 text-center">Morellonomicon</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Runes -->
+    <section class="mt-8">
+      <h2 class="text-xl font-semibold mb-4">🪄 Runes</h2>
+      <div class="grid grid-cols-2 gap-6">
+        <!-- Keystone -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png"
+            alt="Conqueror"
+            class="w-12 h-12 rounded"
+            title="Conqueror (Keystone)"
+          />
+          <div>
+            <p class="font-semibold">Conqueror (Keystone)</p>
+            <p class="text-xs text-gray-300 max-w-xs">
+              Grants stacking adaptive damage and healing during combat, perfect for sustained fights.
+            </p>
+          </div>
+        </div>
+
+        <!-- Secondary -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png"
+            alt="Electrocute"
+            class="w-12 h-12 rounded"
+            title="Electrocute (Secondary)"
+          />
+          <div>
+            <p class="font-semibold">Electrocute (Secondary)</p>
+            <p class="text-xs text-gray-300 max-w-xs">
+              Burst damage procs on attacks or abilities, helping to burst down squishy targets quickly.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -105,4 +151,3 @@
   </div>
 </body>
 </html>
- 
